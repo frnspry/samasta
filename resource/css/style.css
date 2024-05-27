@@ -1,0 +1,305 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Albertina+MT+Regular+SC&display=swap');
+
+body {
+    font-family: 'Albertina MT Regular SC', serif;
+}
+
+.offcanvas-header {
+    justify-content: flex-end;
+}
+
+.offcanvas-body {
+    padding-top: 2rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust z-index as needed */
+}
+
+.navbar + .container-fluid {
+    margin-top: 56px; /* Adjust this value to match the height of your navbar */
+}
+
+.nav-link {
+    font-size: 3rem; /* Adjust the font size here */
+    color: #555; /* Dark gray color */
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #000; /* Black color on hover */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+
+.navbar-brand img {
+    margin-right: 10px; /* Adjust margin as needed */
+    margin-left: 100px;
+}
+
+.navbar-brand span {
+    flex: 1; /* Expand to fill remaining space */
+}
+
+
+
+/* CSS for jumbotron */
+.jumbotron {
+    background:  rgba(0, 0, 0, 0.35) url('../images/sampul.png');
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CSS for content inside jumbotron */
+.content-jumbotron {
+    text-align: center;
+}
+
+/* CSS for header-1 (logo container) */
+.header-1 {
+    margin-top: 10px; /* Example margin */
+}
+
+/* CSS for logo inside header-1 */
+.header-1 img {
+    max-width: 600px; /* Adjust width of logo as needed */
+}
+
+/*container-fluid*/
+.container-fluid-2{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 650px;
+}
+
+.left-side-1 {
+    flex: 1;
+    background-color: #EBE9E6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.container-fluid-2-content {
+    margin-left: 50px;
+}
+
+.left-side-1 h2 {
+    font-size: 80px;
+    margin-bottom: 5px;
+}
+
+.left-side-1 p {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.left-side-1 .read-more {
+    text-align: left;
+}
+
+.right-side-1 {
+    flex: 1.06;
+    background-image: url('../images/menu.jpg'); /* Placeholder image URL */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side-1:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* Overlay color */
+}
+
+/*container-fluid*/
+.container-fluid-3{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 650px;
+}
+
+.right-side-2 {
+    flex: 1;
+    background-color: #EBE9E6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+}
+
+.container-fluid-3-content {
+    margin-right: 50px;
+}
+
+.right-side-2 h2 {
+    text-align: right;
+    font-size: 80px;
+    margin-bottom: 5px;
+}
+
+.right-side-2 p {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.right-side-2 .read-more {
+    text-align: right;
+}
+
+.left-side-2 {
+    flex: 1.06;
+    background-image: url('../images/bukber.jpg'); /* Placeholder image URL */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side-2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* Overlay color */
+}
+
+
+/*container-fluid*/
+.container-fluid-4 {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    height: 400px; /* Set to full viewport height */
+    display: flex;
+    align-items: center;
+}
+.left-side-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+}
+.left-side-3 h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.left-side-3 p {
+    margin-bottom: 30px;
+}
+
+.right-side-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px;
+}
+.form-control {
+    margin-bottom: 20px;
+}
+
+/*container-fluid-5*/
+.container-fluid-5 {
+    background-color: #EBE9E6;
+    padding: 40px 20px;
+    display: flex;
+}
+
+.container-fluid-5 .row {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.left-side-4 {
+    padding: 20px;
+}
+
+.middle-side-4 {
+    padding: 20px;
+} 
+
+.right-side-4{
+    padding: 20px;
+}
+
+.left-side-4 h2, .middle-side-4 h2 {
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px; /* Adjust icon size as needed */
+    height: 30px;
+}
+
+/* Additional CSS for phone image */
+.phone-icon {
+    width: 30px; /* Adjust icon size as needed */
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle; /* Vertically center the image with the text */
+}
+
+.phone-number {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.right-side-4 img {
+    max-width: 350px; /* Adjust logo size as needed */
+    height: auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+
