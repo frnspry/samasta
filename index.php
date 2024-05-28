@@ -79,7 +79,7 @@
                 <div class="left-side-1">
                     <div class="container-fluid-2-content">
                         <h2>MENU</h2>
-                        <p>Deskripsi singkat tentang menu Anda.</p>
+                        <p>Nikmati berbagai macam menu makanan dan minuman menarik di Gazebo Samasta!/p>
                         <div class="read-more">
                             <a class="btn btn-outline-dark" href="#">Read More</a>
                         </div>
@@ -96,7 +96,7 @@
                 <div class="right-side-2">
                     <div class="container-fluid-3-content">
                         <h2>EVENTS</h2>
-                        <p>Deskripsi singkat tentang events Anda.</p>
+                        <p>Reservasi event-event menarik anda di Gazebo Samasta!</p>
                         <div class="read-more">
                             <a class="btn btn-outline-dark" href="#">Read More</a>
                         </div>
@@ -147,9 +147,9 @@
                             <a href="#"><img src="resource/images/facebook.png" alt="Facebook"></a>
                         </div>
                         <h2>LOCATION</h2>
-                        <p>Makasar, Indonesia</p>
+                        <p>JI. Perintis kemerdekaan Baru KM.09, Kota Makassar, Sulawesi Selatan.</p>
                         <h2>OPENING HOURS</h2>
-                        <p>Lorem ipsum dolor sit amet</p>
+                        <p>16:00 to 22:00 WITA</p>
                     </div>
                     <div class="col-md-4 middle-side-4">
                         <h2>RESERVATIONS</h2>
