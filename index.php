@@ -79,7 +79,7 @@
                 <div class="left-side-1">
                     <div class="container-fluid-2-content">
                         <h2>MENU</h2>
-                        <p>Nikmati berbagai macam menu makanan dan minuman menarik di Gazebo Samasta!/p>
+                        <p>Nikmati berbagai macam menu makanan dan minuman menarik di Gazebo Samasta!</p>
                         <div class="read-more">
                             <a class="btn btn-outline-dark" href="#">Read More</a>
                         </div>
