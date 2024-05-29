@@ -30,7 +30,7 @@
 
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="../../index.php">
                             <img src="../../resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                             Samasta
                         </a>
@@ -45,10 +45,10 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="../../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu</a>
+                            <a class="nav-link" href="menu_paket.php">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Reservations</a>
@@ -71,7 +71,7 @@
                     <h2>MENU</h2>
                     <p>Nikmati berbagai macam menu makanan dan minuman menarik di Gazebo Samasta!</p>
                     <div class="read-more">
-                        <a class="btn btn-outline-dark" href="#">View Menu</a>
+                        <a class="btn btn-outline-dark" href="#menu-links">View Menu</a>
                     </div>
                 </div>
             </div>
@@ -79,13 +79,13 @@
             </div>
         </div>
 
-        <div class="menu-links">
-            <a href="#paket">MENU PAKET</a>
-            <a href="#nasi">MENU NASI</a>
-            <a href="#pasta">MENU PASTA</a>
-            <a href="#meat">MENU MEAT</a>
-            <a href="#snack">MENU SNACK</a>
-            <a href="#minuman">MENU MINUMAN</a>
+        <div class="menu-links" id="menu-links">
+            <a href="menu_paket.php#menu-links">MENU PAKET</a>
+            <a href="menu_nasi.php#menu-links">MENU NASI</a>
+            <a href="menu_pasta.php#menu-links">MENU PASTA</a>
+            <a href="menu_meat.php#menu-links">MENU MEAT</a>
+            <a href="menu_snack.php#menu-links">MENU SNACK</a>
+            <a href="menu_minuman.php#menu-links">MENU MINUMAN</a>
         </div>
 
         <div class="container menu-section">

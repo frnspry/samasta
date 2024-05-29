@@ -48,7 +48,7 @@
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu</a>
+                            <a class="nav-link" href="pages/menu/menu_paket.php#menu-links">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Reservations</a>
@@ -81,7 +81,7 @@
                         <h2>MENU</h2>
                         <p>Nikmati berbagai macam menu makanan dan minuman menarik di Gazebo Samasta!</p>
                         <div class="read-more">
-                            <a class="btn btn-outline-dark" href="#">Read More</a>
+                            <a class="btn btn-outline-dark" href="pages/menu/menu_paket.php">Read More</a>
                         </div>
                     </div>
                 </div>
