@@ -54,10 +54,10 @@
                             <a class="nav-link" href="#">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Events</a>
+                            <a class="nav-link" href="pages/event/event.php">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Weddings</a>
+                            <a class="nav-link" href="pages/event/event.php#wedding">Wedding</a>
                         </li>
                     </ul>
                 </div>

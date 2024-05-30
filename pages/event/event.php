@@ -48,16 +48,16 @@
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/menu/menu_paket.php#menu-links">Menu</a>
+                            <a class="nav-link" href="../menu/menu_paket.php#menu-links">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Events</a>
+                            <a class="nav-link" href="event.php">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Weddings</a>
+                            <a class="nav-link" href="#wedding">Wedding</a>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +90,7 @@
             </div>
 
             <!--container-fluid-7-->
-            <div class="container-fluid-7">
+            <div class="container-fluid-7" id="wedding">
                 <div class="left-side-6">
                 </div>
                 <div class="right-side-6">
