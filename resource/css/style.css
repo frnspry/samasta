@@ -74,6 +74,8 @@ body {
 /* CSS for logo inside header-1 */
 .header-1 img {
     max-width: 600px; /* Adjust width of logo as needed */
+    width: 100%; /* Ensure the image scales with its container */
+    height: auto; /* Maintain the aspect ratio */
 }
 
 /*container-fluid*/
@@ -583,5 +585,35 @@ body {
 
     .menu-links a {
         margin: 10px 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .jumbotron {
+        height: 500px;
+    }
+
+    .header-1 img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-1 img {
+        max-width: 300px;
+    }
+
+    .jumbotron {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-1 img {
+        max-width: 200px;
+    }
+
+    .jumbotron {
+        height: 300px;
     }
 }
