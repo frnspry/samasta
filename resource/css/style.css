@@ -84,16 +84,18 @@ body {
     padding: 0;
     display: flex;
     height: 650px;
+    flex-wrap: nowrap;
 }
 
 .left-side-1 {
     flex: 1;
     background-color: #EBE9E6;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .container-fluid-2-content {
@@ -115,7 +117,7 @@ body {
 }
 
 .right-side-1 {
-    flex: 1.06;
+    flex: 1;
     background-image: url('../images/menu.jpg'); /* Placeholder image URL */
     background-size: cover;
     background-position: center;
@@ -123,6 +125,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .right-side-1:before {
@@ -141,16 +145,18 @@ body {
     padding: 0;
     display: flex;
     height: 650px;
+    flex-wrap: nowrap;
 }
 
 .right-side-2 {
     flex: 1;
     background-color: #EBE9E6;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: right;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .container-fluid-3-content {
@@ -173,7 +179,7 @@ body {
 }
 
 .left-side-2 {
-    flex: 1.06;
+    flex: 1;
     background-image: url('../images/bukber.jpg'); /* Placeholder image URL */
     background-size: cover;
     background-position: center;
@@ -181,6 +187,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .left-side-2:before {
@@ -300,16 +308,18 @@ body {
     padding: 0;
     display: flex;
     height: 650px;
+    flex-wrap: nowrap;
 }
 
 .left-side-5 {
     flex: 1;
     background-color: #EBE9E6;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .container-fluid-6-content {
@@ -331,7 +341,7 @@ body {
 }
 
 .right-side-5 {
-    flex: 1.06;
+    flex: 1;
     background-image: url('../images/menu2.jpg'); /* Placeholder image URL */
     background-size: cover;
     background-position: center;
@@ -357,16 +367,18 @@ body {
     padding: 0;
     display: flex;
     height: 650px;
+    flex-wrap: nowrap;
 }
 
 .right-side-6 {
     flex: 1;
     background-color: #EBE9E6;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: right;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .container-fluid-7-content {
@@ -389,7 +401,7 @@ body {
 }
 
 .left-side-6 {
-    flex: 1.06;
+    flex: 1;
     background-image: url('../images/wedding.jpg'); /* Placeholder image URL */
     background-size: cover;
     background-position: center;

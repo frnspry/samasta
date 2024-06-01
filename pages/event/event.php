@@ -65,15 +65,6 @@
         </header>
         
         <main>
-            <!--Jumbotron-->
-            <div class="jumbotron">
-                <div class="content-jumbotron">
-                    <div class="header-1">
-                        <img src="../../resource/images/logoputihcrop.png" alt="Logo">
-                    </div>
-                </div>
-            </div>
-
             <!--container-fluid-6-->
             <div class="container-fluid-6">
                 <div class="left-side-5">
