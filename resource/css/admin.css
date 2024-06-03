@@ -1,0 +1,89 @@
+/* admin.css */
+@import url('https://fonts.googleapis.com/css2?family=Albertina+MT+Regular+SC&display=swap');
+
+body {
+    font-family: 'Albertina MT Regular SC', serif;
+    background-color: #EBE9E6;
+}
+
+/* login */
+.background-login {
+    background: rgba(0, 0, 0, 0.5) url('../images/bg-login.jpg');
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blur{
+    background-color: rgb(229 231 235);
+}
+
+.h1-login{
+    text-align: center;
+}
+
+.h3-login {
+    text-align: center;
+}
+
+.right-content{
+    background: rgba(0, 0, 0, 0.35) url('../images/login.jpg');
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input[type='password'] {
+    letter-spacing: 0.125em;
+}
+
+/* dashboard */
+.background-white{
+    background: rgba(0, 0, 0, 0.5) url('../images/bg-login.jpg');
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background-nav{
+    color: #ffffff;
+}
+
+.icon{
+    height: 40px;
+    width: 40px;
+}
+
+.color-icon{
+    color: #ffffff;
+}
+
+.color-icon:hover{
+    color: #000000;
+}
+
+.hidden-arrow::before {
+    display: none;
+}
+
+.hidden-arrow::after {
+    display: none;
+}
+
+.drop{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.list{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.background-main{
+    background-color: #F6F6F6;
+}
+
+.color-menu{
+    color: #000000;
+}
