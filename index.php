@@ -19,6 +19,9 @@
         
         <!-- CSS file -->
         <link href="resource/css/style.css" rel="stylesheet">
+
+        <!-- JS file -->
+        <script src="resource/js/script.js"></script>
         
     </head>
 
@@ -34,8 +37,9 @@
                             <img src="resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                             Samasta
                         </a>
-                        <a class="btn btn-outline-light" href="#">Make Reservation</a>
+                        <a class="btn btn-outline-light" data-toggle="modal" data-target="#myModal">Make Reservation</a>
                     </div>
+                    <div id="modalContainer"></div>
             </nav>
 
             <div class="offcanvas offcanvas-start bg-light text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
