@@ -512,20 +512,48 @@ body {
 }
 
 /* modal */
-.menu-list {
-    display: flex;
+.menu-item-container {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.menu-item-container .row {
     align-items: center;
-    justify-content: space-between;
 }
-.menu-list img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 10px;
+
+.menu-item-container h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
 }
-.menu-list span {
-    flex-grow: 1;
+
+.menu-item-container p {
+    margin: 0;
+    color: #666;
 }
+
+.quantity {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.btn-outline-secondary {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    line-height: 28px;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-item-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+
 
 /* Media Queries for responsiveness */
 @media (max-width: 1200px) {

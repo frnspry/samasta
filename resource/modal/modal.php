@@ -1,4 +1,3 @@
-
 <!-- The First Modal -->
 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -48,81 +47,57 @@
 </div>
 
 <!-- The Second Modal -->
-<div class="modal fade" id="timeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="menuModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Select a time at Quay Restaurant</h4>
+                <h4 class="modal-title">Select Your Menu</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-                <div class="text-center">
-                    <p id="selectedDateTime"></p>
-                </div>
-                <div class="row">
-                    <div class="col-6 col-md-4 mb-3">
-                        <button type="button" class="btn btn-primary btn-block time-slot">12:15<br>Lunch - six- or eight-course dining</button>
+                <!-- Menu Section -->
+                <div class="menu-modal">
+                <h5>MENU PAKET</h5>
+                    <div class="menu-item-container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="../../../samasta/resource/images/Nasi ayam goreng rempah.jpg" alt="Nasi Ayam Goreng Rempah" class="img-fluid menu-item-image">
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Nasi Ayam Goreng Rempah</h6>
+                                <p>Rp.28.000</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn btn-outline-secondary minus-btn">−</button>
+                                <span class="quantity">0</span>
+                                <button class="btn btn-outline-secondary plus-btn">+</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 col-md-4 mb-3">
-                        <button type="button" class="btn btn-primary btn-block time-slot">12:15<br>Quay to Lunch - four-course dining</button>
+                    <div class="menu-item-container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="../../../samasta/resource/images/Nasi_bebek_palekko.jpg" alt="Nasi Bebek Palekko" class="img-fluid menu-item-image">
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Nasi Bebek Palekko</h6>
+                                <p>Rp.38.000</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn btn-outline-secondary minus-btn">−</button>
+                                <span class="quantity">0</span>
+                                <button class="btn btn-outline-secondary plus-btn">+</button>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Add more time slots as needed -->
+                    
                 </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
                 <p class="text-muted small">Availability at our other venues.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- The Third Modal -->
-<div class="modal fade" id="menuModal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Upgrade your reservation</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="text-center">
-                    <p id="holdingTime"></p>
-                </div>
-                <div class="menu-additions">
-                    <h5>Menu additions</h5>
-                    <div class="menu-list mb-3">
-                        <img src="resource/images/Nasi putih.jpg" alt="Beluga Caviar">
-                        <span>Beluga caviar course</span>
-                        <div>
-                            <button type="button" class="btn btn-secondary btn-sm minus" data-target="#belugaCount">-</button>
-                            <span id="belugaCount">0</span>
-                            <button type="button" class="btn btn-secondary btn-sm plus" data-target="#belugaCount">+</button>
-                        </div>
-                    </div>
-                    <!-- Add more menu items as needed -->
-                </div>
-                <div class="dining-options">
-                    <h5>Dining Options</h5>
-                    <div class="menu-list mb-3">
-                        <img src="https://via.placeholder.com/50" alt="BYO">
-                        <span>Dust Off Your Bottles with BYO at Quay</span>
-                        <div>
-                            <button type="button" class="btn btn-secondary btn-sm minus" data-target="#byoCount">-</button>
-                            <span id="byoCount">0</span>
-                            <button type="button" class="btn btn-secondary btn-sm plus" data-target="#byoCount">+</button>
-                        </div>
-                    </div>
-                    <!-- Add more dining options as needed -->
-                </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <p class="text-muted small">Pre-order Champagne by the glass.</p>
             </div>
         </div>
     </div>

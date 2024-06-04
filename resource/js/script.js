@@ -37,13 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     myModal.hide();
                 }
 
-                // Set the selected date and time in the second modal
-                document.getElementById('selectedDateTime').innerText = date + ', ' + guests + ' Guests, ' + time;
 
                 // Open the second modal
-                var timeModalElement = document.getElementById('timeModal');
-                var timeModal = bootstrap.Modal.getOrCreateInstance(timeModalElement);
-                timeModal.show();
+                var menuModalElement = document.getElementById('menuModal');
+                var menuModal = bootstrap.Modal.getOrCreateInstance(menuModalElement);
+                menuModal.show();
             });
 
             document.getElementById('guests').addEventListener('change', function() {
@@ -55,53 +53,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     tableTypeOptions = '<option value="Meja A">Meja A</option>';
                 } else if (guests === '5-8') {
                     tableTypeOptions = '<option value="Meja B">Meja B</option>';
-                } else if (guests === '8+') {
-                    tableTypeOptions = '<option value="Meja C">Meja C</option><option value="Gazebo">Gazebo</option>';
+                } else {
+                    tableTypeOptions = '<option value="Meja C">Meja C</option>';
                 }
-
                 tableTypeSelect.innerHTML = tableTypeOptions;
             });
 
-            document.querySelectorAll('.time-slot').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    // Close the second modal explicitly
-                    var timeModalElement = document.getElementById('timeModal');
-                    var timeModal = bootstrap.Modal.getInstance(timeModalElement);
-                    if (timeModal) {
-                        timeModal.hide();
-                    }
+            document.querySelectorAll('.menu-item-container').forEach(function(container) {
+                var quantityElement = container.querySelector('.quantity');
+                var minusButton = container.querySelector('.minus-btn');
+                var plusButton = container.querySelector('.plus-btn');
 
-                    var timeSlotDetails = this.innerText;
-                    document.getElementById('holdingTime').innerText = "We're holding this table for: " + timeSlotDetails;
-
-                    var menuModalElement = document.getElementById('menuModal');
-                    var menuModal = bootstrap.Modal.getOrCreateInstance(menuModalElement);
-                    menuModal.show();
-                });
-            });
-
-            document.querySelectorAll('.plus').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var targetSelector = this.getAttribute('data-target');
-                    var target = document.querySelector(targetSelector);
-                    if (target) {
-                        var count = parseInt(target.innerText);
-                        count = count + 1;
-                        target.innerText = count;
+                minusButton.addEventListener('click', function() {
+                    var quantity = parseInt(quantityElement.textContent);
+                    if (quantity > 0) {
+                        quantity--;
+                        quantityElement.textContent = quantity;
                     }
                 });
-            });
 
-            document.querySelectorAll('.minus').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var targetSelector = this.getAttribute('data-target');
-                    var target = document.querySelector(targetSelector);
-                    if (target) {
-                        var count = parseInt(target.innerText);
-                        count = count - 1;
-                        if (count < 0) count = 0;
-                        target.innerText = count;
-                    }
+                plusButton.addEventListener('click', function() {
+                    var quantity = parseInt(quantityElement.textContent);
+                    quantity++;
+                    quantityElement.textContent = quantity;
                 });
             });
         });
