@@ -512,18 +512,18 @@ body {
 }
 
 /* modal */
-.menu-item {
+.menu-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.menu-item img {
+.menu-list img {
     width: 50px;
     height: 50px;
     object-fit: cover;
     margin-right: 10px;
 }
-.menu-item span {
+.menu-list span {
     flex-grow: 1;
 }
 

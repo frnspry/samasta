@@ -95,7 +95,7 @@
                 </div>
                 <div class="menu-additions">
                     <h5>Menu additions</h5>
-                    <div class="menu-item mb-3">
+                    <div class="menu-list mb-3">
                         <img src="resource/images/Nasi putih.jpg" alt="Beluga Caviar">
                         <span>Beluga caviar course</span>
                         <div>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="dining-options">
                     <h5>Dining Options</h5>
-                    <div class="menu-item mb-3">
+                    <div class="menu-list mb-3">
                         <img src="https://via.placeholder.com/50" alt="BYO">
                         <span>Dust Off Your Bottles with BYO at Quay</span>
                         <div>
