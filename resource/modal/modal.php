@@ -47,6 +47,7 @@
 </div>
 
 <!-- The Second Modal -->
+<?php include '../db/db_connect.php'; ?>
 <div class="modal fade" id="menuModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -59,46 +60,94 @@
             <div class="modal-body">
                 <!-- Menu Section -->
                 <div class="menu-modal">
-                <h5>MENU PAKET</h5>
-                    <div class="menu-item-container">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="../../../samasta/resource/images/Nasi ayam goreng rempah.jpg" alt="Nasi Ayam Goreng Rempah" class="img-fluid menu-item-image">
-                            </div>
-                            <div class="col-md-6">
-                                <h6>Nasi Ayam Goreng Rempah</h6>
-                                <p>Rp.28.000</p>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <button class="btn btn-outline-secondary minus-btn">−</button>
-                                <span class="quantity">0</span>
-                                <button class="btn btn-outline-secondary plus-btn">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item-container">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="../../../samasta/resource/images/Nasi_bebek_palekko.jpg" alt="Nasi Bebek Palekko" class="img-fluid menu-item-image">
-                            </div>
-                            <div class="col-md-6">
-                                <h6>Nasi Bebek Palekko</h6>
-                                <p>Rp.38.000</p>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <button class="btn btn-outline-secondary minus-btn">−</button>
-                                <span class="quantity">0</span>
-                                <button class="btn btn-outline-secondary plus-btn">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    <?php
+                    // Define the categories and their respective items
+                    $categories = [
+                        "MENU PAKET" => ["Nasi Ayam Goreng Rempah", "Nasi Bebek Palekko", "Nasi Bebek Sinjay Madura"],
+                        "MENU NASI" => ["Nasi Putih", "Nasi Putih Satu Bakul", "Nasi Goreng Kampung"],
+                        "MENU PASTA" => ["Pasta Carbonara", "Pasta Aglio e Olio", "Pasta Mushroom Aglio e Olio"],
+                        "MENU MEAT" => ["Grilled Chicken Skewer", "Wagyu Saikoro Skewer"],
+                        "MENU SNACK" => ["Pisang Goreng Keju", "French Fries", "Beef Burger", "Chicken Burger"],
+                        "MENU MINUMAN" => ["Special Lychee", "Fantastic Mango", "Cappuccino Ice", "Thai Tea Ice", "Chocolate Ice"]
+                    ];
+
+                    // Define the images
+                    $menuItems = [
+                        "Nasi Ayam Goreng Rempah" => "images/Nasi_ayam_goreng_rempah.jpg",
+                        "Nasi Bebek Palekko" => "images/Nasi_bebek_palekko.jpg",
+                        "Nasi Bebek Sinjay Madura" => "images/Nasi_bebek_sinjay_madura.jpg",
+                        "Nasi Putih" => "images/Nasi_putih.jpg",
+                        "Nasi Putih Satu Bakul" => "images/Nasi_putih_satu_bakul.jpg",
+                        "Nasi Goreng Kampung" => "images/Nasi_goreng_kampung.jpg",
+                        "Pasta Carbonara" => "images/Pasta_carbonara.jpg",
+                        "Pasta Aglio e Olio" => "images/Pasta_aglio_e_olio.jpg",
+                        "Pasta Mushroom Aglio e Olio" => "images/Pasta_mushroom_aglio_e_olio.jpg",
+                        "Grilled Chicken Skewer" => "images/Grilled_chicken_skewer.jpg",
+                        "Wagyu Saikoro Skewer" => "images/Wagyu_saikoro_skewer.jpg",
+                        "Pisang Goreng Keju" => "images/Pisang_goreng_keju.jpg",
+                        "French Fries" => "images/French_fries.jpg",
+                        "Beef Burger" => "images/Beef_burger.jpg",
+                        "Chicken Burger" => "images/Chicken_burger.jpg",
+                        "Special Lychee" => "images/Special_lychee.jpg",
+                        "Fantastic Mango" => "images/Fantastic_mango.jpg",
+                        "Cappuccino Ice" => "images/Cappuccino_ice.jpg",
+                        "Thai Tea Ice" => "images/Thai_tea_ice.jpg",
+                        "Chocolate Ice" => "images/Chocolate_ice.jpg"
+                    ];
+
+                    try {
+                        // Fetch the menu items from the database
+                        $stmt = $dbh->query("SELECT name, price FROM menu");
+
+                        if ($stmt->rowCount() > 0) {
+                            // Store fetched menu items in an associative array
+                            $fetchedItems = [];
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                $fetchedItems[$row['name']] = $row;
+                            }
+
+                            // Loop through each category and display its items
+                            foreach ($categories as $category => $items) {
+                                echo '<h5>' . $category . '</h5>';
+                                foreach ($items as $item) {
+                                    if (isset($fetchedItems[$item])) {
+                                        $imagePath = isset($menuItems[$item]) ? $menuItems[$item] : 'default.jpg';
+                                        echo '<div class="menu-item-container">';
+                                        echo '<div class="row">';
+                                        echo '<div class="col-md-2">';
+                                        echo '<img src="' . $imagePath . '" alt="' . $fetchedItems[$item]['name'] . '" class="img-fluid menu-item-image">';
+                                        echo '</div>';
+                                        echo '<div class="col-md-6">';
+                                        echo '<h6>' . $fetchedItems[$item]['name'] . '</h6>';
+                                        echo '<p>Rp.' . $fetchedItems[$item]['price'] . '</p>';
+                                        echo '</div>';
+                                        echo '<div class="col-md-4 text-end">';
+                                        echo '<button class="btn btn-outline-secondary minus-btn">−</button>';
+                                        echo '<span class="quantity">0</span>';
+                                        echo '<button class="btn btn-outline-secondary plus-btn">+</button>';
+                                        echo '</div>';
+                                        echo '</div>';
+                                        echo '</div>';
+                                    }
+                                }
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                    } catch (PDOException $e) {
+                        echo "Query failed: " . $e->getMessage();
+                    }
+                    ?>
                 </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <p class="text-muted small">Availability at our other venues.</p>
+                <button type="button" class="btn btn-outline-dark" id="saveMenuButton">Save</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
