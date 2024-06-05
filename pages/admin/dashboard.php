@@ -1,3 +1,15 @@
+<?php
+session_start();
+// Memasukkan file koneksi database
+require_once '../../resource/db/db_connect.php';
+
+// Check if the user is already logged in
+if(!isset($_SESSION['username'])){
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="en">
     <head>

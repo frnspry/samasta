@@ -1,6 +1,6 @@
 <?php
 // fetch_menu.php
-include 'db.php';
+include 'db_connect.php';
 
 $sql = "SELECT name, price, img FROM menu";
 $result = $conn->query($sql);
