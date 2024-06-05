@@ -27,6 +27,10 @@
         <!-- CSS file -->
         <link href="../../resource/css/admin.css" rel="stylesheet">
 
+        <!-- Script -->
+        <script src="../../resource/js/dashboard.js"></script>
+        <script src="../../resource/js/db_logout.js"></script>
+
 <body>
     <nav class="navbar navbar-expand-lg py-2 background-white shadow">
         <div class="container-fluid mx-4">
@@ -54,7 +58,7 @@
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow text-decoration-none" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="d-flex align-items-center">
                             <img class="rounded-circle icon" src="../../resource/images/profile.png" alt="profile">
-                            <span class="background-nav font-weight-bold ps-2">Admin</span>
+                            <span class="background-nav font-weight-bold ps-2" id="currentUser">Admin</span>
                 </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end drop rounded" aria-labelledby="navbarDropdownMenuAvatar">
@@ -65,7 +69,7 @@
                             <a class="dropdown-item list" href="#">Settings</a>
                         </li>
                         <li>
-                            <a class="dropdown-item list text-danger" href="#">Logout</a>
+                            <input class="dropdown-item list text-danger" id="logout-form" type="submit" value="Logout" name="logout">
                         </li>
                     </ul>   
                 </div>
