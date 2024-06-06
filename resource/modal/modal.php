@@ -29,6 +29,7 @@
                         <label for="table">Jenis Meja</label>
                         <select class="form-control" id="table">
                             <option value="Meja A">Meja A</option>
+                            
                         </select>
                     </div>
                     <div class="form-group">
@@ -45,6 +46,9 @@
         </div>
     </div>
 </div>
+
+                   
+
 
 <!-- The Second Modal -->
 <?php include '../db/db_connect.php'; ?>
@@ -73,26 +77,26 @@
 
                     // Define the images
                     $menuItems = [
-                        "Nasi Ayam Goreng Rempah" => "images/Nasi_ayam_goreng_rempah.jpg",
-                        "Nasi Bebek Palekko" => "images/Nasi_bebek_palekko.jpg",
-                        "Nasi Bebek Sinjay Madura" => "images/Nasi_bebek_sinjay_madura.jpg",
-                        "Nasi Putih" => "images/Nasi_putih.jpg",
-                        "Nasi Putih Satu Bakul" => "images/Nasi_putih_satu_bakul.jpg",
-                        "Nasi Goreng Kampung" => "images/Nasi_goreng_kampung.jpg",
-                        "Pasta Carbonara" => "images/Pasta_carbonara.jpg",
-                        "Pasta Aglio e Olio" => "images/Pasta_aglio_e_olio.jpg",
-                        "Pasta Mushroom Aglio e Olio" => "images/Pasta_mushroom_aglio_e_olio.jpg",
-                        "Grilled Chicken Skewer" => "images/Grilled_chicken_skewer.jpg",
-                        "Wagyu Saikoro Skewer" => "images/Wagyu_saikoro_skewer.jpg",
-                        "Pisang Goreng Keju" => "images/Pisang_goreng_keju.jpg",
-                        "French Fries" => "images/French_fries.jpg",
-                        "Beef Burger" => "images/Beef_burger.jpg",
-                        "Chicken Burger" => "images/Chicken_burger.jpg",
-                        "Special Lychee" => "images/Special_lychee.jpg",
-                        "Fantastic Mango" => "images/Fantastic_mango.jpg",
-                        "Cappuccino Ice" => "images/Cappuccino_ice.jpg",
-                        "Thai Tea Ice" => "images/Thai_tea_ice.jpg",
-                        "Chocolate Ice" => "images/Chocolate_ice.jpg"
+                        "Nasi Ayam Goreng Rempah" => "resource/images/nasi ayam goreng rempah.jpg",
+                        "Nasi Bebek Palekko" => "resource/images/nasi_bebek_palekko.jpg",
+                        "Nasi Bebek Sinjay Madura" => "resource/images/Nasi bebek sinjay.jpg",
+                        "Nasi Putih" => "resource/images/nasi putih.jpg",
+                        "Nasi Putih Satu Bakul" => "resource/images/nasi putih satu bakul.jpg",
+                        "Nasi Goreng Kampung" => "resource/images/nasi goreng kampung.jpg",
+                        "Pasta Carbonara" => "resource/images/pasta carbonara.jpg",
+                        "Pasta Aglio e Olio" => "resource/images/Pasta oglioolio.jpg",
+                        "Pasta Mushroom Aglio e Olio" => "resource/images/Mushroom oglioolio pasta.jpg",
+                        "Grilled Chicken Skewer" => "resource/images/Grilled chicken skeweer.jpg",
+                        "Wagyu Saikoro Skewer" => "resource/images/Wagyo saikoro skeweer.jpg",
+                        "Pisang Goreng Keju" => "resource/images/Pisang goreng keju.jpg",
+                        "French Fries" => "resource/images/French fries.jpg",
+                        "Beef Burger" => "resource/images/Beef burger.jpg",
+                        "Chicken Burger" => "resource/images/Chicken burger.jpg",
+                        "Special Lychee" => "resource/images/Special Lechy.jpg",
+                        "Fantastic Mango" => "resource/images/Fantastic Mango.jpg",
+                        "Cappuccino Ice" => "resource/images/Ice Capuccino.jpg",
+                        "Thai Tea Ice" => "resource/images/Ice Thai tea.jpg",
+                        "Chocolate Ice" => "resource/images/Ice Chocolate.jpg"
                     ];
 
                     try {

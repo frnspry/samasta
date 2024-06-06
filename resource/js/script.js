@@ -132,5 +132,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     });
                 });
+
+            // Update table options based on guests selection
+            document.getElementById('guests').addEventListener('change', function() {
+                var guests = this.value;
+                var tableSelect = document.getElementById('table');
+                tableSelect.innerHTML = '';
+
+                if (guests === '1-4') {
+                    tableSelect.innerHTML += '<option value="Meja A">Meja A</option>';
+                } else if (guests === '5-8') {
+                    tableSelect.innerHTML += '<option value="Meja B">Meja B</option>';
+                } else if (guests === '8+') {
+                    tableSelect.innerHTML += '<option value="Meja C">Meja C</option>';
+                    tableSelect.innerHTML += '<option value="Gazebo">Gazebo</option>';
+                }
+            });
         });
 });
