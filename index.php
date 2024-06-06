@@ -112,7 +112,7 @@
             <div class="container-fluid-4">
                 <div class="row">
                     <div class="col-md-6 left-side-3">
-                        <h2>TERUS PANTAU HAL TERBARU DI GAZEBO SAMASTA</h2>
+                        <h2>TERUS IKUTI HAL TERBARU DI GAZEBO SAMASTA</h2>
                         <p>Ikuti terus berita terkini dan update dari Gazebo Samasta.</p>
                     </div>
                     <div class="col-md-6 right-side-3">

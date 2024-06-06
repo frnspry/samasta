@@ -9,10 +9,17 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-$sql = "SELECT c.name, c.phone, c.no_rekening, r.table_id, r.reservation_date, r.reservation_time, r.prices, r.status
+// Query to fetch menu data
+$sql_menu = "SELECT name, price FROM menu";
+$stmt_menu = $dbh->prepare($sql_menu);
+$stmt_menu->execute();
+$menu_results = $stmt_menu->fetchAll(PDO::FETCH_ASSOC);
+
+// Query to fetch reservations data
+$sql_reservations = "SELECT c.name, c.phone, c.no_rekening, r.table_id, r.reservation_date, r.reservation_time, r.prices, r.status
         FROM customers c
         JOIN reservations r ON c.customer_id = r.customer_id";
-$stmt = $dbh->prepare($sql);
+$stmt = $dbh->prepare($sql_reservations);
 $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -42,6 +49,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Script -->
     <script src="../../resource/js/dashboard.js"></script>
     <script src="../../resource/js/db_logout.js"></script>
+</head>
 
 <body>
     <nav class="navbar navbar-expand-lg py-2 background-white shadow">
@@ -81,7 +89,9 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <a class="dropdown-item list" href="#">Settings</a>
                         </li>
                         <li>
-                            <input class="dropdown-item list text-danger" id="logout-form" type="submit" value="Logout" name="logout">
+                            <form class="dropdown-item list text-danger" action="logout.php" method="post" id="logout-form">
+                                <button type="submit" class="btn btn-link text-danger" name="logout">Logout</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -102,28 +112,14 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </li>
 
                         <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table color-menu"></i> <span class="ms-1 d-none d-sm-inline color-menu">Master Data</span></a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0 color-menu"> <span class="d-none d-sm-inline color-menu">Item 1</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 color-menu"> <span class="d-none d-sm-inline color-menu">Item 2</span></a>
-                                </li>
-                            </ul>
+                            <a href="#masterData" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table color-menu"></i> <span class="ms-1 d-none d-sm-inline color-menu">Master Data</span> </a>
                         </li>
 
                         <li>
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi bi-book color-menu"></i> <span class="ms-1 d-none d-sm-inline color-menu">Buku Menu</span></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0 color-menu"> <span class="d-none d-sm-inline color-menu">Item 1</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 color-menu"> <span class="d-none d-sm-inline color-menu">Item 2</span></a>
-                                </li>
                             </ul>
                         </li>
 
@@ -145,38 +141,72 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Selamat Datang</h3>
                 <p class="lead">
                     Dashboard Admin Gazebo Samasta</p>
-                <div>
-                    <table>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Phone</th>
-                            <th>No Rekening</th>
-                            <th>Table ID</th>
-                            <th>Tgl Reservasi</th>
-                            <th>Waktu Reservasi</th>
-                            <th>Biaya</th>
-                            <th>Status</th>
-                        </tr>
-                        <?php
-                        if (!empty($results)) {
-                            // Menampilkan data tiap baris
-                            foreach ($results as $row) {
-                                echo "<tr>
-                    <td>" . $row["name"] . "</td>
-                    <td>" . $row["phone"] . "</td>
-                    <td>" . $row["no_rekening"] . "</td>
-                    <td>" . $row["table_id"] . "</td>
-                    <td>" . $row["reservation_date"] . "</td>
-                    <td>" . $row["reservation_time"] . "</td>
-                    <td>" . $row["prices"] . "</td>
-                    <td>" . $row["status"] . "</td>
-                </tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='7'>Tidak ada data ditemukan</td></tr>";
-                        }
-                        ?>
-                    </table>
+                
+                <!-- Master Data Section -->
+                <div class="collapse" id="masterData">
+                    <h3>Master Data</h3>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>Phone</th>
+                                    <th>No Rekening</th>
+                                    <th>Table ID</th>
+                                    <th>Tgl Reservasi</th>
+                                    <th>Waktu Reservasi</th>
+                                    <th>Biaya</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if (!empty($results)) {
+                                    // Menampilkan data tiap baris
+                                    foreach ($results as $row) {
+                                        echo "<tr>
+                                            <td>" . $row["name"] . "</td>
+                                            <td>" . $row["phone"] . "</td>
+                                            <td>" . $row["no_rekening"] . "</td>
+                                            <td>" . $row["table_id"] . "</td>
+                                            <td>" . $row["reservation_date"] . "</td>
+                                            <td>" . $row["reservation_time"] . "</td>
+                                            <td>" . $row["prices"] . "</td>
+                                            <td>" . $row["status"] . "</td>
+                                        </tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='8'>Tidak ada data ditemukan</td></tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Buku Menu Section -->
+                <div class="collapse" id="submenu2">
+                    <h3>Buku Menu</h3>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Menu</th>
+                                    <th>Harga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($menu_results as $menu) {
+                                    echo "<tr>
+                                            <td>" . $menu['name'] . "</td>
+                                            <td>Rp. " . number_format($menu['price']) . "</td>
+                                        </tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -185,3 +215,4 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
