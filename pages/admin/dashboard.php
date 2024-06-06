@@ -16,12 +16,18 @@ $stmt_menu->execute();
 $menu_results = $stmt_menu->fetchAll(PDO::FETCH_ASSOC);
 
 // Query to fetch reservations data
-$sql_reservations = "SELECT c.name, c.phone, c.no_rekening, r.table_id, r.reservation_date, r.reservation_time, r.prices, r.status
+$sql_reservations = "SELECT r.reservation_id, c.name, c.phone, r.table_id, r.reservation_date, r.reservation_time, r.prices, r.status
         FROM customers c
         JOIN reservations r ON c.customer_id = r.customer_id";
 $stmt = $dbh->prepare($sql_reservations);
 $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Query to fetch admins data
+$sql_admins = "SELECT username FROM admins";
+$stmt_admins = $dbh->prepare($sql_admins);
+$stmt_admins->execute();
+$admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!doctype html>
@@ -124,7 +130,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="#listAdmin" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people color-menu"></i> <span class="ms-1 d-none d-sm-inline color-menu">List Admin</span> </a>
                         </li>
 
@@ -141,7 +147,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Selamat Datang</h3>
                 <p class="lead">
                     Dashboard Admin Gazebo Samasta</p>
-                
+
                 <!-- Master Data Section -->
                 <div class="collapse" id="masterData">
                     <h3>Master Data</h3>
@@ -151,7 +157,6 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <tr>
                                     <th>Nama</th>
                                     <th>Phone</th>
-                                    <th>No Rekening</th>
                                     <th>Table ID</th>
                                     <th>Tgl Reservasi</th>
                                     <th>Waktu Reservasi</th>
@@ -164,19 +169,18 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 if (!empty($results)) {
                                     // Menampilkan data tiap baris
                                     foreach ($results as $row) {
-                                        echo "<tr>
-                                            <td>" . $row["name"] . "</td>
-                                            <td>" . $row["phone"] . "</td>
-                                            <td>" . $row["no_rekening"] . "</td>
-                                            <td>" . $row["table_id"] . "</td>
-                                            <td>" . $row["reservation_date"] . "</td>
-                                            <td>" . $row["reservation_time"] . "</td>
-                                            <td>" . $row["prices"] . "</td>
-                                            <td>" . $row["status"] . "</td>
-                                        </tr>";
+                                        echo "<tr id='data-reservation' data-toggle='modal' data-target='#reservationModal' data-reservation-id='" . $row['reservation_id'] . "'>
+                                                <td>" . $row["name"] . "</td>
+                                                <td>" . $row["phone"] . "</td>
+                                                <td>" . $row["table_id"] . "</td>
+                                                <td>" . $row["reservation_date"] . "</td>
+                                                <td>" . $row["reservation_time"] . "</td>
+                                                <td>Rp. " . number_format($row["prices"]) . "</td>
+                                                <td>" . $row["status"] . "</td>
+                                            </tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='8'>Tidak ada data ditemukan</td></tr>";
+                                    echo "<tr><td colspan='7'>Tidak ada data ditemukan</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -208,6 +212,48 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </table>
                     </div>
                 </div>
+
+                <!-- List Admin Section -->
+                <div class="collapse" id="listAdmin">
+                    <h3>List Admin</h3>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($admins_results as $admin) {
+                                    echo "<tr>
+                                            <td>" . $admin['username'] . "</td>
+                                        </tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservation Modal -->
+    <div class="modal fade" id="reservationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="reservationModalLabel">Reservation Details</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Reservation details will be loaded dynamically here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
@@ -215,4 +261,3 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
-
