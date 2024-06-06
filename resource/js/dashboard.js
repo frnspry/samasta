@@ -16,13 +16,17 @@ fetch(getUsername)
     .catch(error => console.error('Error:', error));
 
     document.addEventListener("DOMContentLoaded", function () {
+        // Function to format numbers with commas
+        function number_format(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
         var reservationRows = document.querySelectorAll("#masterData table tbody tr");
         reservationRows.forEach(function (row) {
             row.addEventListener("click", function () {
-                // var reservationId = this.getAttribute("data-reservation-id");
-                let dataReservation = document.querySelector("#data-reservation");
+                let dataReservation = this;
                 let reservationId = dataReservation.getAttribute('data-reservation-id');
-
+    
                 fetch(getReservationDetails + reservationId)
                     .then(function (response) {
                         return response.json();
@@ -40,9 +44,14 @@ fetch(getUsername)
                             <p>Table ID: ${data.table_id}</p>
                             <p>Tanggal Reservasi: ${data.reservation_date}</p>
                             <p>Waktu Reservasi: ${data.reservation_time}</p>
-                            <p>Biaya: Rp. ${data.prices}</p>
+                            <p>Biaya: Rp. ${number_format(data.prices)}</p>
                             <p>Status: ${data.status}</p>
                         `;
+    
+                        // Show the modal
+                        var reservationModalElement = document.getElementById('reservationModal');
+                        var reservationModal = bootstrap.Modal.getOrCreateInstance(reservationModalElement);
+                        reservationModal.show();
                     })
                     .catch(function (error) {
                         console.error("Error fetching reservation details: ", error);
@@ -50,3 +59,4 @@ fetch(getUsername)
             });
         });
     });
+    

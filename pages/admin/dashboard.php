@@ -250,9 +250,18 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                 <div class="modal-body">
                     <!-- Reservation details will be loaded dynamically here -->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="container text-center">
+                    <div class="modal-footer row">
+                        <div class="col align-self-start">
+                            <button type="button" class="btn btn-success">Confirmed</button>
+                            <button type="button" class="btn btn-warning">Pending</button>
+                            <button type="button" class="btn btn-danger">Cancelled</button>
+                        </div>
+                        <div class="col align-self-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
