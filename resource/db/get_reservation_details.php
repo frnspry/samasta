@@ -12,7 +12,7 @@ if (!isset($_GET['id'])) {
 $reservation_id = intval($_GET['id']);
 
 // Query to fetch reservation details for the provided reservation ID
-$sql_reservations = "SELECT r.reservation_id, c.name, c.email, c.phone, c.no_rekening, r.table_id, r.reservation_date, r.reservation_time, r.prices, r.status
+$sql_reservations = "SELECT c.name, c.email, c.phone, c.no_rekening, r.table_type, r.reservation_date, r.reservation_time, r.prices, r.status, r.invoice
         FROM customers c
         JOIN reservations r ON c.customer_id = r.customer_id
         WHERE r.reservation_id = :reservation_id";

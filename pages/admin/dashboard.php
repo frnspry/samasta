@@ -16,7 +16,7 @@ $stmt_menu->execute();
 $menu_results = $stmt_menu->fetchAll(PDO::FETCH_ASSOC);
 
 // Query to fetch reservations data
-$sql_reservations = "SELECT r.reservation_id, c.name, c.phone, r.table_id, r.reservation_date, r.reservation_time, r.prices, r.status
+$sql_reservations = "SELECT r.reservation_id, c.name, c.phone, r.table_type, r.reservation_date, r.reservation_time, r.prices, r.status
         FROM customers c
         JOIN reservations r ON c.customer_id = r.customer_id";
 $stmt = $dbh->prepare($sql_reservations);
@@ -95,15 +95,13 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end drop rounded" aria-labelledby="navbarDropdownMenuAvatar">
                         <li>
-                            <a class="dropdown-item list" href="#">My profile</a>
+                            <a class="dropdown-item list">My profile</a>
                         </li>
                         <li>
-                            <a class="dropdown-item list" href="#">Settings</a>
+                            <a class="dropdown-item list">Settings</a>
                         </li>
                         <li>
-                            <form class="dropdown-item list text-danger" action="logout.php" method="post" id="logout-form">
-                                <button type="submit" class="btn btn-link text-danger" name="logout">Logout</button>
-                            </form>
+                            <a class="dropdown-item list text-danger" id="logout-form">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -163,7 +161,7 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                                 <tr>
                                     <th>Nama</th>
                                     <th>Phone</th>
-                                    <th>Table ID</th>
+                                    <th>Tipe Meja</th>
                                     <th>Tgl Reservasi</th>
                                     <th>Waktu Reservasi</th>
                                     <th>Biaya</th>
@@ -178,7 +176,7 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                                         echo "<tr id='data-reservation' data-toggle='modal' data-target='#reservationModal' data-reservation-id='" . $row['reservation_id'] . "'>
                                                 <td>" . $row["name"] . "</td>
                                                 <td>" . $row["phone"] . "</td>
-                                                <td>" . $row["table_id"] . "</td>
+                                                <td>" . $row["table_type"] . "</td>
                                                 <td>" . $row["reservation_date"] . "</td>
                                                 <td>" . $row["reservation_time"] . "</td>
                                                 <td>Rp. " . number_format($row["prices"]) . "</td>
@@ -256,16 +254,22 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                 <div class="modal-body">
                     <!-- Reservation details will be loaded dynamically here -->
                 </div>
-                <div class="container text-center">
-                    <div class="modal-footer row">
-                        <div class="col align-self-start">
-                            <button type="button" class="btn btn-success">Confirmed</button>
-                            <button type="button" class="btn btn-warning">Pending</button>
-                            <button type="button" class="btn btn-danger">Cancelled</button>
-                        </div>
-                        <div class="col align-self-end">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-footer">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <select id="statusSelect" class="form-control">
+                                        <option value="pending">Pending</option>
+                                        <option value="confirmed">Confirmed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <button id="closeButton" type="button" class="btn btn-danger">Batal</button>
+                                <button id="saveButton" type="button" class="btn btn-primary">Simpan</button>
+                            </div>
                         </div>
                     </div>
                 </div>

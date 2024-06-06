@@ -29,7 +29,7 @@
                         <label for="table">Jenis Meja</label>
                         <select class="form-control" id="table">
                             <option value="Meja A">Meja A</option>
-                            
+
                         </select>
                     </div>
                     <div class="form-group">
@@ -47,7 +47,7 @@
     </div>
 </div>
 
-                   
+
 
 
 <!-- The Second Modal -->
@@ -146,12 +146,60 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" id="saveMenuButton">Save</button>
+                <button type="button" class="btn btn-outline-dark" id="lanjutButton">Lanjut</button>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
+<!-- Third Modal -->
+<div class="modal fade" id="paymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Payment</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h4 class="text-center fw-bold">Informasi Diri</h4>
+                <form id="paymentForm">
+                    <div class="my-2">
+                        <div class="mb-2">
+                            <label for="name">Nama</label>
+                        </div>
+                        <input class="form-control form-control-lg" type="text" name="name" id="name" placeholder="Masukkan Nama Anda" required>
+                    </div>
+                    <div class="my-2">
+                        <div class="mb-2">
+                            <label for="email">Email</label>
+                        </div>
+                        <input class="form-control form-control-lg" type="text" name="email" id="email" placeholder="Masukkan Email Anda" required>
+                    </div>
+                    <div class="my-2">
+                        <div class="mb-2">
+                            <label for="phone">Nomor HP</label>
+                        </div>
+                        <input class="form-control form-control-lg" type="text" name="phone" id="phone" placeholder="Masukkan Nomor HP Anda" required>
+                    </div>
+                    <div class="my-2">
+                        <div class="mb-2">
+                            <label for="no_rekening">Nomor Rekening</label>
+                        </div>
+                        <input class="form-control form-control-lg" type="text" name="no_rekening" id="no_rekening" placeholder="Masukkan No Rekening Anda" required>
+                    </div>
+                </form>
+                <h4 class="text-center fw-bold">Summary</h4>
+                <p>reservation_date</p>
+                <p>reservation_people</p>
+                <p>reservation_order</p>
+                <p>reservation_prices</p>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" id="selesaiButton">Selesai</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+const fetchmenu = '../../resource/db/fetch_menu.php'
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch('resource/modal/modal.php')
         .then(response => response.text())
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Fetch menu items
-            fetch('fetch_menu.php')
+            fetch(fetchmenu)
                 .then(response => response.json())
                 .then(data => {
                     const menuModal = document.querySelector('.menu-modal');
@@ -147,6 +149,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     tableSelect.innerHTML += '<option value="Meja C">Meja C</option>';
                     tableSelect.innerHTML += '<option value="Gazebo">Gazebo</option>';
                 }
+            });
+
+            // Attach event listeners after the modals are loaded
+            document.getElementById('lanjutButton').addEventListener('click', function() {
+                // Close the second modal explicitly
+                var menuModalElement = document.getElementById('menuModal');
+                var menuModal = bootstrap.Modal.getInstance(menuModalElement);
+                if (menuModal) {
+                    menuModal.hide();
+                }
+
+                // Open the third modal
+                var paymentModalElement = document.getElementById('paymentModal');
+                var paymentModal = bootstrap.Modal.getOrCreateInstance(paymentModalElement);
+                paymentModal.show();
             });
         });
 });
