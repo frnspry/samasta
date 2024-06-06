@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Menu - Gazebo Samasta</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+
+        <!-- Favicon -->
+        <link rel="icon" href="../../resource/images/logoaja.png" type="image/x-icon">
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link

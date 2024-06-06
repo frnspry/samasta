@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Event - Gazebo Samasta</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+
+        <!-- Favicon -->
+        <link rel="icon" href="../../resource/images/logoaja.png" type="image/x-icon">
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link
@@ -45,7 +48,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="../../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../menu/menu_paket.php#menu-links">Menu</a>

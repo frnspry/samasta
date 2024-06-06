@@ -1,29 +1,33 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+    <title>Gazebo Samasta</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        >
-        
-        <!-- CSS file -->
-        <link href="resource/css/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="resource/images/logoaja.png" type="image/x-icon">
+    
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    >
+    
+    <!-- CSS file -->
+    <link href="resource/css/style.css" rel="stylesheet">
 
-        <!-- JS file -->
-        <script src="resource/js/script.js"></script>
-        
-    </head>
+    <!-- JS file -->
+    <script src="resource/js/script.js"></script>
+    
+</head>
+
 
     <body>
         <header>
@@ -102,7 +106,7 @@
                         <h2>ACARA</h2>
                         <p>Reservasi event-event menarik anda di Gazebo Samasta!</p>
                         <div class="read-more">
-                            <a class="btn btn-outline-dark" href="#">Lihat Acara</a>
+                            <a class="btn btn-outline-dark" href="pages/event/event.php">Lihat Acara</a>
                         </div>
                     </div>
                 </div>
