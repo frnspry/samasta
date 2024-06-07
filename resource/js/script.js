@@ -1,6 +1,7 @@
 const fetchmenu = '../../resource/db/fetch_menu.php';
 const modalurl = '../../resource/modal/modal.php';
 const fetchreservation = '../../resource/db/db_reservation.php';
+const indexPage = 'index.php';
 
 let orderList = [];
 let totalPrice = 0;
@@ -143,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         const menuItem = menuData.find(menuItem => menuItem.name === itemName);
                         if (menuItem) {
                             orderList.push({ id: menuItem.menu_id, name: itemName, quantity: 1 });
-                            console.log(`Added to orderList: id: ${menuItem.menu_id}, name: ${itemName}, quantity: 1`);
                         } else {
                             console.error('Menu item not found');
                         }
@@ -271,15 +271,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     postHandlerData.append(`order_items[${index}][quantity]`, item.quantity);
                 });
 
-                console.log([...postHandlerData]); // Convert FormData to array for logging
-
                 fetch(fetchreservation, {
                     method: 'POST',
                     body: postHandlerData
                 })
                 .then(response => response.text()) // Adjust based on the PHP response type
                 .then(data => {
-                    console.log(data); // Handle success
                     alert('Reservation and order items inserted successfully!');
                 })
                 .catch(error => {
@@ -288,6 +285,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 successModal.show();
+            });
+
+            document.getElementById('homeButton').addEventListener('click', function () {
+                window.location.href = indexPage;
             });
         });
 });
