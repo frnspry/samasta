@@ -4,7 +4,7 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Quay Restaurant</h4>
+                <h4 class="modal-title">Gazebo Samasta</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- Modal body -->
@@ -41,7 +41,7 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <p class="text-muted small">Powered by SEVENROOMS</p>
+                <p class="text-muted small">Powered by SEAL</p>
             </div>
         </div>
     </div>
@@ -146,7 +146,12 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" id="lanjutButton">Lanjut</button>
+                <div>
+                    <p id="total-price">Rp.0</p>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-dark" id="lanjutButton">Lanjut</button>
+                </div>
             </div>
         </div>
     </div>
@@ -191,10 +196,18 @@
                     </div>
                 </form>
                 <h4 class="text-center fw-bold">Summary</h4>
-                <p>reservation_date</p>
-                <p>reservation_people</p>
-                <p>reservation_order</p>
-                <p>reservation_prices</p>
+                <h5>Tanggal</h5>
+                <p id="reservationDate">reservation_date</p>
+                <h5>Waktu</h5>
+                <p id="reservationTime">reservation_time</p>
+                <h5>Jumlah Tamu</h5>
+                <p id="reservationGuests">reservation_people</p>
+                <h5>Jenis Meja</h5>
+                <p id="reservationTable">reservation_table</p>
+                <h5>Pesanan</h5>
+                <p id="reservationOrders">reservation_orders</p>
+                <h5>Total Harga</h5>
+                <p id="reservationPrices">reservation_prices</p>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">

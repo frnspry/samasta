@@ -1,7 +1,8 @@
 const fetchmenu = '../../resource/db/fetch_menu.php'
+const modalurl = '../../resource/modal/modal.php'
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('resource/modal/modal.php')
+    fetch(modalurl)
         .then(response => response.text())
         .then(data => {
             document.getElementById('modalContainer').innerHTML = data;
@@ -47,6 +48,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 var menuModalElement = document.getElementById('menuModal');
                 var menuModal = bootstrap.Modal.getOrCreateInstance(menuModalElement);
                 menuModal.show();
+
+                const reservation_date = document.getElementById('date').value;
+                const reservation_time = document.getElementById('time').value;
+                const reservation_guests = document.getElementById('guests').value;
+                const reservation_table = document.getElementById('table').value;
+
+                // Summary
+                document.getElementById('reservationDate').textContent = reservation_date;
+                document.getElementById('reservationTime').textContent = reservation_time;
+                document.getElementById('reservationGuests').textContent = reservation_guests;
+                document.getElementById('reservationTable').textContent = reservation_table;
             });
 
             // Event listener for date, guests, table, and time inputs
@@ -164,6 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 var paymentModalElement = document.getElementById('paymentModal');
                 var paymentModal = bootstrap.Modal.getOrCreateInstance(paymentModalElement);
                 paymentModal.show();
+
             });
+
+            
+
         });
 });
