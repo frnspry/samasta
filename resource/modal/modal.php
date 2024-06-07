@@ -123,7 +123,7 @@
                                         echo '</div>';
                                         echo '<div class="col-md-6">';
                                         echo '<h6>' . $fetchedItems[$item]['name'] . '</h6>';
-                                        echo '<p>Rp.' . $fetchedItems[$item]['price'] . '</p>';
+                                        echo '<p>Rp.' . number_format($fetchedItems[$item]['price']) . '</p>';
                                         echo '</div>';
                                         echo '<div class="col-md-4 text-end">';
                                         echo '<button class="btn btn-outline-secondary minus-btn">−</button>';
@@ -147,7 +147,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <div>
-                    <p id="total-price">Rp.0</p>
+                    <p class="total-price">Rp.0</p>
                 </div>
                 <div>
                     <button type="button" class="btn btn-outline-dark" id="lanjutButton">Lanjut</button>
@@ -205,7 +205,7 @@
                 <h5>Jenis Meja</h5>
                 <p id="reservationTable">reservation_table</p>
                 <h5>Pesanan</h5>
-                <p id="reservationOrders">reservation_orders</p>
+                <div id="reservationOrders" class="order-list"></div>
                 <h5>Total Harga</h5>
                 <p id="reservationPrices">reservation_prices</p>
             </div>

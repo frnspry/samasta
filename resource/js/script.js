@@ -1,6 +1,9 @@
 const fetchmenu = '../../resource/db/fetch_menu.php'
 const modalurl = '../../resource/modal/modal.php'
 
+var orderList = [];
+var totalPrice = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch(modalurl)
         .then(response => response.text())
@@ -49,16 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 var menuModal = bootstrap.Modal.getOrCreateInstance(menuModalElement);
                 menuModal.show();
 
-                const reservation_date = document.getElementById('date').value;
-                const reservation_time = document.getElementById('time').value;
-                const reservation_guests = document.getElementById('guests').value;
-                const reservation_table = document.getElementById('table').value;
-
-                // Summary
-                document.getElementById('reservationDate').textContent = reservation_date;
-                document.getElementById('reservationTime').textContent = reservation_time;
-                document.getElementById('reservationGuests').textContent = reservation_guests;
-                document.getElementById('reservationTable').textContent = reservation_table;
             });
 
             // Event listener for date, guests, table, and time inputs
@@ -78,74 +71,112 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     searchButton.disabled = true;
                 }
+
+                // Summary
+                document.getElementById('reservationDate').textContent = date;
+                document.getElementById('reservationTime').textContent = time;
+                document.getElementById('reservationGuests').textContent = guests;
+                document.getElementById('reservationTable').textContent = table;
             }
 
-            // JavaScript to handle increment and decrement buttons
-            document.querySelectorAll('.menu-item-container').forEach(function(container) {
+            // // JavaScript to handle increment and decrement buttons
+            // document.querySelectorAll('.menu-item-container').forEach(function(container) {
+            //     var quantityElement = container.querySelector('.quantity');
+            //     var minusButton = container.querySelector('.minus-btn');
+            //     var plusButton = container.querySelector('.plus-btn');
+
+            //     minusButton.addEventListener('click', function() {
+            //         var quantity = parseInt(quantityElement.textContent);
+            //         if (quantity > 0) {
+            //             quantity--;
+            //             quantityElement.textContent = quantity;
+            //         }
+            //     });
+
+            //     plusButton.addEventListener('click', function() {
+            //         var quantity = parseInt(quantityElement.textContent);
+            //         quantity++;
+            //         quantityElement.textContent = quantity;
+            //     });
+            // });
+
+            function number_format(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            function renderOrderList() {
+                var orderListContainer = document.querySelector('.order-list');
+                var totalPriceElement = document.querySelector('.total-price');
+                var newTotalPrice = totalPrice * 1000;
+
+                // Kosongkan konten sebelum menampilkan ulang
+                orderListContainer.innerHTML = '';
+
+                // Tampilkan setiap item dalam daftar belanja
+                orderList.forEach(function (item) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = `${item.name} x ${item.quantity}`;
+                    orderListContainer.appendChild(listItem);
+                });
+
+                // Tampilkan total harga
+                totalPriceElement.textContent = `Rp.${number_format(newTotalPrice)}`;
+
+                // Tampilkan total harga di summary
+                document.getElementById('reservationPrices').textContent = totalPriceElement.textContent;
+            }
+
+            // JavaScript untuk menambahkan item ke daftar belanja dan menghitung total harga
+            document.querySelectorAll('.menu-item-container').forEach(function (container) {
                 var quantityElement = container.querySelector('.quantity');
                 var minusButton = container.querySelector('.minus-btn');
                 var plusButton = container.querySelector('.plus-btn');
+                var itemName = container.querySelector('h6').textContent;
+                var itemPrice = parseInt(container.querySelector('p').textContent.replace('Rp.', ''));
 
-                minusButton.addEventListener('click', function() {
+                minusButton.addEventListener('click', function () {
                     var quantity = parseInt(quantityElement.textContent);
                     if (quantity > 0) {
                         quantity--;
                         quantityElement.textContent = quantity;
+
+                        // Cari item di dalam daftar belanja
+                        var index = orderList.findIndex(item => item.name === itemName);
+                        if (index !== -1) {
+                            // Kurangi jumlah item dari daftar belanja
+                            orderList[index].quantity--;
+                            if (orderList[index].quantity === 0) {
+                                // Hapus item jika jumlahnya menjadi 0
+                                orderList.splice(index, 1);
+                            }
+                        }
+                        // Kurangi total harga
+                        totalPrice -= itemPrice;
+                        // Tampilkan ulang daftar belanja dan total harga
+                        renderOrderList();
                     }
                 });
 
-                plusButton.addEventListener('click', function() {
+                plusButton.addEventListener('click', function () {
                     var quantity = parseInt(quantityElement.textContent);
                     quantity++;
                     quantityElement.textContent = quantity;
+
+                    // Tambahkan item ke dalam daftar belanja
+                    var index = orderList.findIndex(item => item.name === itemName);
+                    if (index !== -1) {
+                        // Jika item sudah ada di dalam daftar belanja, tambahkan jumlahnya
+                        orderList[index].quantity++;
+                    } else {
+                        // Jika item belum ada di dalam daftar belanja, tambahkan sebagai item baru
+                        orderList.push({ name: itemName, quantity: 1 });
+                    }
+                    // Tambahkan harga item ke total harga
+                    totalPrice += itemPrice;
+                    // Tampilkan ulang daftar belanja dan total harga
+                    renderOrderList();
                 });
             });
-
-            // Fetch menu items
-            fetch(fetchmenu)
-                .then(response => response.json())
-                .then(data => {
-                    const menuModal = document.querySelector('.menu-modal');
-                    data.forEach(item => {
-                        const menuItemContainer = document.createElement('div');
-                        menuItemContainer.classList.add('menu-item-container');
-                        menuItemContainer.innerHTML = `
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="${item.image_path}" alt="${item.name}" class="img-fluid menu-item-image">
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>${item.name}</h6>
-                                    <p>Rp.${item.price}</p>
-                                </div>
-                                <div class="col-md-4 text-end">
-                                    <button class="btn btn-outline-secondary minus-btn">−</button>
-                                    <span class="quantity">0</span>
-                                    <button class="btn btn-outline-secondary plus-btn">+</button>
-                                </div>
-                            </div>`;
-                        menuModal.appendChild(menuItemContainer);
-                    });
-
-                    // JavaScript to handle increment and decrement buttons
-                    document.querySelectorAll('.minus-btn').forEach(function(btn) {
-                        btn.addEventListener('click', function() {
-                            var quantityElement = this.nextElementSibling;
-                            var quantity = parseInt(quantityElement.textContent);
-                            if (quantity > 0) {
-                                quantityElement.textContent = quantity - 1;
-                            }
-                        });
-                    });
-
-                    document.querySelectorAll('.plus-btn').forEach(function(btn) {
-                        btn.addEventListener('click', function() {
-                            var quantityElement = this.previousElementSibling;
-                            var quantity = parseInt(quantityElement.textContent);
-                            quantityElement.textContent = quantity + 1;
-                        });
-                    });
-                });
 
             // Update table options based on guests selection
             document.getElementById('guests').addEventListener('change', function() {
@@ -178,8 +209,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 paymentModal.show();
 
             });
-
-            
-
         });
 });

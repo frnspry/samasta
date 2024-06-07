@@ -2,7 +2,9 @@
 // fetch_menu.php
 include 'db_connect.php';
 
-$sql = "SELECT name, price, img FROM menu";
+$sql = "SELECT m.name, m.price, oi.quantity
+        FROM menu m
+        JOIN order_items oi ON m.menu_id = oi.menu_id";
 $result = $conn->query($sql);
 
 $menuItems = array();
