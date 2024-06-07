@@ -28,7 +28,7 @@
                     <div class="form-group" id="tableType">
                         <label for="table">Jenis Meja</label>
                         <select class="form-control" id="table">
-                            <option value="Meja A">Meja A</option>
+                            <option value="A">A</option>
 
                         </select>
                     </div>
@@ -197,17 +197,17 @@
                 </form>
                 <h4 class="text-center fw-bold">Summary</h4>
                 <h5>Tanggal</h5>
-                <p id="reservationDate">reservation_date</p>
+                <p id="reservationDate">date</p>
                 <h5>Waktu</h5>
-                <p id="reservationTime">reservation_time</p>
+                <p id="reservationTime">time</p>
                 <h5>Jumlah Tamu</h5>
-                <p id="reservationGuests">reservation_people</p>
+                <p id="reservationGuests">guest</p>
                 <h5>Jenis Meja</h5>
-                <p id="reservationTable">reservation_table</p>
+                <p id="reservationTable">table</p>
                 <h5>Pesanan</h5>
                 <div id="reservationOrders" class="order-list"></div>
                 <h5>Total Harga</h5>
-                <p id="reservationPrices">reservation_prices</p>
+                <p id="reservationPrices">prices</p>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -216,3 +216,44 @@
         </div>
     </div>
 </div>
+
+<!-- Four Modal -->
+<div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Success</h4>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h4 class="text-center fw-bold">Berhasil</h4>
+                <h5>Invoice</h5>
+                <p id="successInvoice">invoice</p>
+                <h5>Nama</h5>
+                <p id="successName">nama</p>
+                <h5>Email</h5>
+                <p id="successEmail">email</p>
+                <h5>Nomor HP</h5>
+                <p id="successPhone">nomor hp</p>
+                <h5>Nomor Rekening</h5>
+                <p id="successRekening">nomor rekening</p>
+                <h5>Tanggal</h5>
+                <p id="successReservationDate">date</p>
+                <h5>Waktu</h5>
+                <p id="successReservationTime">time</p>
+                <h5>Jumlah Tamu</h5>
+                <p id="successReservationGuests">guest</p>
+                <h5>Jenis Meja</h5>
+                <p id="successReservationTable">table</p>
+                <h5>Pesanan</h5>
+                <div id="successOrderList"></div>
+                <h5>Total Harga</h5>
+                <p id="successReservationPrices">prices</p>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" id="homeButton">Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
