@@ -2,49 +2,50 @@
 // Include your database connection script
 require_once 'db_connect.php';
 
-// Enable error reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Check if content type is JSON
-if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
-    http_response_code(400);
-    echo json_encode(['error' => 'Content-Type must be application/json']);
-    exit;
-}
-
-// Get the JSON input
-$input = json_decode(file_get_contents('php://input'), true);
-
-// Sanitize the input to prevent SQL injection
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-$status = $input['status'];
-
 try {
-    // Query to update the status of the reservation
-    $sql_update_status = "UPDATE reservations SET status = :status WHERE reservation_id = :reservation_id";
-    $stmt = $dbh->prepare($sql_update_status);
-    $stmt->bindParam(':status', $status, PDO::PARAM_STR);
-    $stmt->bindParam(':reservation_id', $reservation_id, PDO::PARAM_INT);
+    // Begin transaction
+    $dbh->beginTransaction();
 
-    // Execute the update query
-    if ($stmt->execute()) {
-        echo json_encode(['message' => 'Status updated successfully']);
-    } else {
-        http_response_code(500);
-        echo json_encode(['error' => 'Error updating status']);
+    // Insert customer
+    $stmt = $dbh->prepare("INSERT INTO customers (name, email, phone, no_rekening) VALUES (:name, :email, :phone, :no_rekening)");
+    $stmt->execute([
+        ':name' => $_POST['name'],
+        ':email' => $_POST['email'],
+        ':phone' => $_POST['phone'],
+        ':no_rekening' => $_POST['no_rekening']
+    ]);
+    $customer_id = $dbh->lastInsertId();
+
+    // Insert reservation
+    $stmt = $dbh->prepare("INSERT INTO reservations (customer_id, reservation_date, reservation_time, prices, invoice, peoples, table_type) VALUES (:customer_id, :reservation_date, :reservation_time, :prices, :invoice, :peoples, :table_type)");
+    $stmt->execute([
+        ':customer_id' => $customer_id,
+        ':reservation_date' => $_POST['reservation_date'],
+        ':reservation_time' => $_POST['reservation_time'],
+        ':prices' => $_POST['prices'],
+        ':invoice' => $_POST['invoice'],
+        ':peoples' => $_POST['peoples'],
+        ':table_type' => $_POST['table_type']
+    ]);
+    $reservation_id = $dbh->lastInsertId();
+
+    // Insert order items
+    $stmt = $dbh->prepare("INSERT INTO order_items (reservation_id, menu_id, quantity) VALUES (:reservation_id, :menu_id, :quantity)");
+    foreach ($_POST['order_items'] as $item) {
+        $stmt->execute([
+            ':reservation_id' => $reservation_id,
+            ':menu_id' => $item['menu_id'],
+            ':quantity' => $item['quantity']
+        ]);
     }
+
+    // Commit transaction
+    $dbh->commit();
+
+    echo "Reservation and order items inserted successfully!";
 } catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+    // Rollback transaction if something went wrong
+    $dbh->rollBack();
+    echo "Error: " . $e->getMessage();
 }
 ?>

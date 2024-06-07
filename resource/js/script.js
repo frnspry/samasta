@@ -1,5 +1,6 @@
 const fetchmenu = '../../resource/db/fetch_menu.php';
 const modalurl = '../../resource/modal/modal.php';
+const fetchreservation = '../../resource/db/db_reservation.php';
 
 let orderList = [];
 let totalPrice = 0;
@@ -189,11 +190,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const paymentModalElement = document.getElementById('paymentModal');
                 const paymentModal = bootstrap.Modal.getInstance(paymentModalElement);
 
-                let name = document.getElementById('name').value;
-                let email = document.getElementById('email').value;
-                let phone = document.getElementById('phone').value;
-                let noRekening = document.getElementById('no_rekening').value;
-
                 if (paymentModal) {
                     paymentModal.hide();
                 }
@@ -209,6 +205,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     successOrderList.appendChild(listItem);
                 });
 
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let phone = document.getElementById('phone').value;
+                let noRekening = document.getElementById('no_rekening').value;
+
                 document.getElementById('successName').textContent = name;
                 document.getElementById('successEmail').textContent = email;
                 document.getElementById('successPhone').textContent = phone;
@@ -216,13 +217,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 document.getElementById('successReservationDate').textContent = date;
                 document.getElementById('successReservationTime').textContent = time;
+                let datee = date;
+                let timee = time;
                 document.getElementById('successReservationGuests').textContent = guests;
                 document.getElementById('successReservationTable').textContent = table;
-                document.getElementById('successReservationPrices').textContent = document.getElementById('reservationPrices').textContent;
+                let prices = document.getElementById('reservationPrices').textContent;
+                document.getElementById('successReservationPrices').textContent = prices;
+                let pricess = removeSymbols(document.getElementById('reservationPrices').textContent);
 
                 // Fungsi untuk menghapus tanda hubung dan simbol dari string
                 function removeSymbols(str) {
-                    return str.replace(/[^0-9]/g, '');
+                    // Removes Rp., commas, and any non-digit characters
+                    return str.replace(/[Rp.,]/g, '').replace(/[^0-9]/g, '');
                 }
                 // Fungsi untuk mengacak string
                 function shuffleString(str) {
@@ -245,6 +251,41 @@ document.addEventListener('DOMContentLoaded', function () {
                 const invoice = 'INV-' + randomizedDateTime;
 
                 document.getElementById('successInvoice').textContent = invoice;
+
+                // Prepare data for POST request to Database Handler
+                let postHandlerData = new FormData();
+                postHandlerData.append('name', name);
+                postHandlerData.append('email', email);
+                postHandlerData.append('phone', phone);
+                postHandlerData.append('no_rekening', noRekening);
+                postHandlerData.append('reservation_date', datee);
+                postHandlerData.append('reservation_time', timee);
+                postHandlerData.append('peoples', guests);
+                postHandlerData.append('table_type', table);
+                postHandlerData.append('prices', pricess);
+                postHandlerData.append('invoice', invoice);
+
+                // Append orderList to postHandlerData
+                orderList.forEach((item, index) => {
+                    postHandlerData.append(`order_items[${index}][menu_id]`, item.id);
+                    postHandlerData.append(`order_items[${index}][quantity]`, item.quantity);
+                });
+
+                console.log([...postHandlerData]); // Convert FormData to array for logging
+
+                fetch(fetchreservation, {
+                    method: 'POST',
+                    body: postHandlerData
+                })
+                .then(response => response.text()) // Adjust based on the PHP response type
+                .then(data => {
+                    console.log(data); // Handle success
+                    alert('Reservation and order items inserted successfully!');
+                })
+                .catch(error => {
+                    console.error('Error:', error); // Handle error
+                    alert('An error occurred while submitting the reservation.');
+                });
 
                 successModal.show();
             });
