@@ -25,13 +25,14 @@
             right: 20px;
             display: none;
             z-index: 99;
-            padding: 10px;
-            border-radius: 50%;
-            background-color: transparent;
-            /* Background kosong */
-            transition: background-color 0.3s ease-in-out;
-            border: 2px solid #333;
-            /* Tambahkan border */
+            padding: 5px;
+            /* Perkecil ukuran tombol */
+            border-radius: 5px;
+            /* Ubah bentuk background */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Ubah warna background dengan transparansi */
+            color: white;
+            /* Ubah warna ikon menjadi putih */
         }
 
         #btnTop:hover {
@@ -41,10 +42,8 @@
 
         /* Gaya Icon Panah atas */
         #btnTop i {
-            font-size: 24px;
-            /* Ukuran ikon */
-            color: #333;
-            /* Warna ikon */
+            font-size: 18px;
+            /* Perkecil ukuran ikon */
         }
 
         /* Animasi untuk muncul dan menghilang */
