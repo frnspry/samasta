@@ -297,4 +297,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = indexPage;
             });
         });
+        $(document).ready(function() {
+            // Memunculkan atau menyembunyikan tombol berdasarkan posisi scroll
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#btnTop').fadeIn();
+                } else {
+                    $('#btnTop').fadeOut();
+                }
+            });
+
+            // Menggulir kembali ke atas ketika tombol ditekan
+            $('#btnTop').click(function() {
+                $('html, body').scrollTop(0); // Menggulir langsung ke atas tanpa animasi
+                return false;
+            });
+        });
 });

@@ -16,94 +16,58 @@
     <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-    <!-- CSS for Top Down Button -->
-    <style>
-        /* Gaya Tombol Top Down */
-        #btnTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            z-index: 99;
-            padding: 5px;
-            /* Perkecil ukuran tombol */
-            border-radius: 5px;
-            /* Ubah bentuk background */
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Ubah warna background dengan transparansi */
-            color: white;
-            /* Ubah warna ikon menjadi putih */
-        }
 
-        #btnTop:hover {
-            background-color: #ff0000;
-            /* Warna merah saat dihover */
-        }
-
-        /* Gaya Icon Panah atas */
-        #btnTop i {
-            font-size: 18px;
-            /* Perkecil ukuran ikon */
-        }
-
-        /* Animasi untuk muncul dan menghilang */
-        #btnTop.fade-in {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        #btnTop.fade-out {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-    </style>
 
     <!-- CSS file -->
     <link href="../../resource/css/style.css" rel="stylesheet">
 
-</head>
+    <!-- JS file -->
+    <script src="../../resource/js/script.js"></script>
+        
+    </head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-dark bg-dark" id="nav">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark" id="nav">
+                    <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="../../index.php">
-                    <img src="../../resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-                    Samasta
-                </a>
-                <a class="btn btn-outline-light" href="#">Buat Reservasi</a>
-            </div>
-        </nav>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="../../index.php">
+                            <img src="../../resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                            Samasta
+                        </a>
+                        <a class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#myModal">Buat Reservasi</a>
+                    </div>
+            </nav>
+        <div id="modalContainer"></div>
 
-        <div class="offcanvas offcanvas-start bg-light text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div class="offcanvas offcanvas-start bg-light text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.php">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu_paket.php">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#myModal">Reservasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../event/event.php">Acara</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../event/event.php#wedding">Pernikahan</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.php">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu_paket.php">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Reservasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../event/event.php">Acara</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../event/event.php#wedding">Pernikahan</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
+        </header>
 
     <!--container-fluid-2-->
     <div class="container-fluid-2">
@@ -224,24 +188,6 @@
 
     <!-- Membutuhkan script jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Memunculkan atau menyembunyikan tombol berdasarkan posisi scroll
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#btnTop').fadeIn();
-                } else {
-                    $('#btnTop').fadeOut();
-                }
-            });
-
-            // Menggulir kembali ke atas ketika tombol ditekan
-            $('#btnTop').click(function() {
-                $('html, body').scrollTop(0); // Menggulir langsung ke atas tanpa animasi
-                return false;
-            });
-        });
-    </script>
 
 
     <!-- Bootstrap JavaScript Libraries -->

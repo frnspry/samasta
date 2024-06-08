@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="text-center">
-                    <img src="https://via.placeholder.com/150" alt="Quay Logo" class="mb-4">
+                    <img src="../../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4">
                 </div>
                 <form id="bookingForm">
                     <div class="form-group">

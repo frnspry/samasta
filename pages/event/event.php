@@ -16,50 +16,11 @@
     <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-    <!-- CSS for Top Down Button -->
-    <style>
-        /* Gaya Tombol Top Down */
-        #btnTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            z-index: 99;
-            padding: 5px;
-            /* Perkecil ukuran tombol */
-            border-radius: 5px;
-            /* Ubah bentuk background */
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Ubah warna background dengan transparansi */
-            color: white;
-            /* Ubah warna ikon menjadi putih */
-        }
-
-        #btnTop:hover {
-            background-color: #ff0000;
-            /* Warna merah saat dihover */
-        }
-
-        /* Gaya Icon Panah atas */
-        #btnTop i {
-            font-size: 18px;
-            /* Perkecil ukuran ikon */
-        }
-
-        /* Animasi untuk muncul dan menghilang */
-        #btnTop.fade-in {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        #btnTop.fade-out {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-    </style>
-
     <!-- CSS file -->
     <link href="../../resource/css/style.css" rel="stylesheet">
+
+    <!-- JS file -->
+    <script src="../../resource/js/script.js"></script>
 
 </head>
 
@@ -76,8 +37,10 @@
                     Samasta
                 </a>
                 <a class="btn btn-outline-light" href="#">Buat Reservasi</a>
+                <a class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#myModal">Buat Reservasi</a>
             </div>
         </nav>
+        <div id="modalContainer"></div>
 
         <div class="offcanvas offcanvas-start bg-light text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
@@ -93,6 +56,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reservasi</a>
+                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#myModal">Reservasi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="event.php">Acara</a>
@@ -264,24 +228,7 @@
 
     <!-- Membutuhkan script jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Memunculkan atau menyembunyikan tombol berdasarkan posisi scroll
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#btnTop').fadeIn();
-                } else {
-                    $('#btnTop').fadeOut();
-                }
-            });
 
-            // Menggulir kembali ke atas ketika tombol ditekan
-            $('#btnTop').click(function() {
-                $('html, body').scrollTop(0); // Menggulir langsung ke atas tanpa animasi
-                return false;
-            });
-        });
-    </script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

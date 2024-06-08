@@ -11,6 +11,9 @@
 
         <!-- Favicon -->
         <link rel="icon" href="../../resource/images/logoaja.png" type="image/x-icon">
+        
+        <!-- Font Awesome Icons -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link
@@ -22,6 +25,9 @@
         
         <!-- CSS file -->
         <link href="../../resource/css/style.css" rel="stylesheet">
+
+        <!-- JS file -->
+        <script src="../../resource/js/script.js"></script>
         
     </head>
 
@@ -37,9 +43,10 @@
                             <img src="../../resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                             Samasta
                         </a>
-                        <a class="btn btn-outline-light" href="#">Buat Reservasi</a>
+                        <a class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#myModal">Buat Reservasi</a>
                     </div>
             </nav>
+        <div id="modalContainer"></div>
 
             <div class="offcanvas offcanvas-start bg-light text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
@@ -54,7 +61,7 @@
                             <a class="nav-link" href="menu_paket.php">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Reservasi</a>
+                            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#myModal">Reservasi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../event/event.php">Acara</a>
@@ -174,6 +181,12 @@
                 <p class="text-center mb-0">Gazebo Samasta 2024. All Right Reserved.</p>
             </div>
         </footer>
+
+        <!-- Tombol Top Down -->
+        <a href="#" class="btn btn-dark btn-floating" id="btnTop"><i class="fas fa-arrow-up"></i></a>
+
+        <!-- Membutuhkan script jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <!-- Bootstrap JavaScript Libraries -->
         <script
