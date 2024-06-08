@@ -104,6 +104,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Display total price in summary
                 document.getElementById('reservationPrices').textContent = totalPriceElement.textContent;
+
+                // Enable or disable lanjutButton based on the orderList
+                document.getElementById('lanjutButton').disabled = orderList.length === 0;
             }
 
             // JavaScript to add item to order list and calculate total price
@@ -184,16 +187,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 paymentModal.show();
             });
 
-            // Attach event listeners after the modals are loaded
             document.getElementById('selesaiButton').addEventListener('click', function () {
                 let name = document.getElementById('name').value;
                 let email = document.getElementById('email').value;
                 let phone = document.getElementById('phone').value;
                 let noRekening = document.getElementById('no_rekening').value;
-
+            
                 // Validation
                 if (!name || !email || !phone || !noRekening) {
                     alert('Tolong isi semua kolom yang disediakan!');
+                    return; // Stop further execution if validation fails
+                }
+            
+                // Nama hanya boleh berisi huruf
+                const lettersOnly = name.replace(/[^a-zA-Z\s]/g, '');
+                if (name !== lettersOnly) {
+                    alert('Nama hanya boleh berisi huruf!');
+                    return; // Stop further execution if validation fails
+                }
+            
+                // Nomor HP hanya boleh berisi angka dan maksimal 13 digit
+                const numbersOnlyPhone = phone.replace(/[^0-9]/g, '');
+                if (phone !== numbersOnlyPhone) {
+                    alert('Nomor HP hanya boleh berisi angka!');
+                    return; // Stop further execution if validation fails
+                }
+                if (phone.length > 13) {
+                    alert('Nomor HP maksimal 13 digit!');
+                    return; // Stop further execution if validation fails
+                }
+            
+                // Nomor Rekening hanya boleh berisi angka dan maksimal 16 digit
+                const numbersOnlyRekening = noRekening.replace(/[^0-9]/g, '');
+                if (noRekening !== numbersOnlyRekening) {
+                    alert('Nomor Rekening hanya boleh berisi angka!');
+                    return; // Stop further execution if validation fails
+                }
+                if (noRekening.length > 16) {
+                    alert('Nomor Rekening maksimal 16 digit!');
                     return; // Stop further execution if validation fails
                 }
 

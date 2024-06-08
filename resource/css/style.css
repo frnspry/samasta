@@ -531,14 +531,47 @@ body {
     margin: 0;
     color: #666;
 }
+
+.modal-body .logo {
+    align-items: center;
+    height: 220px;
+}
+
 .modal-body img {
+    margin-top: 15px;
     width: 200px;
     height:auto;
 }
+
+.total-price {
+    padding-top: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
 .quantity {
     margin: 0 10px;
     font-size: 16px;
 }
+
+/* CSS untuk tombol Search agar menjadi warna hitam dan panjang */
+.btn-search-black {
+    background-color: black;
+    color: white;
+    width: 100%;  /* Mengatur lebar tombol agar memenuhi kontainer */
+    height: 50px;  /* Anda dapat menyesuaikan tinggi tombol sesuai kebutuhan */
+    border: none;  /* Menghilangkan border */
+    font-size: 16px;  /* Mengatur ukuran font */
+    display: block;  /* Mengubah tombol menjadi block element */
+    text-align: center;  /* Menyelaraskan teks di tengah */
+    border-radius: 4px;  /* Menambahkan sedikit border-radius untuk tampilan lebih baik */
+}
+
+.btn-search-black:hover {
+    color:white;
+    background-color: #161616;  /* Mengubah warna saat tombol dihover */
+}
+
 
 .btn-outline-secondary {
     border-radius: 50%;

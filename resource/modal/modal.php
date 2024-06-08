@@ -9,12 +9,12 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-                <div class="text-center">
-                    <img src="../../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4">
+                <div class="logo text-center" style="width: 100%;">
+                        <img src="../../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
                 </div>
-                <form id="bookingForm">
+                <form class="bookingForm" id="bookingForm">
                     <div class="form-group">
-                        <label for="date">Date</label>
+                        <label for="date">Tanggal</label>
                         <input type="date" class="form-control" id="date" min="<?php echo date('Y-m-d'); ?>">
                     </div>
                     <div class="form-group">
@@ -36,7 +36,7 @@
                         <label for="time">Time</label>
                         <input type="time" class="form-control" id="time" min="16:00" max="20:00">
                     </div>
-                    <button type="button" class="btn btn-primary btn-block" id="searchButton">Search</button>
+                    <button type="button" class="btn btn-search-black btn-block" id="searchButton">Search</button>
                 </form>
             </div>
             <!-- Modal footer -->
@@ -127,7 +127,7 @@
                                         echo '</div>';
                                         echo '<div class="col-md-4 text-end">';
                                         echo '<button class="btn btn-outline-secondary minus-btn">−</button>';
-                                        echo '<span class="quantity">0</span>';
+                                        echo '<span class="quantity" data-quantity="0">0</span>';
                                         echo '<button class="btn btn-outline-secondary plus-btn">+</button>';
                                         echo '</div>';
                                         echo '</div>';
@@ -143,15 +143,13 @@
                     }
                     ?>
                 </div>
+                <div class="d-grid gap-2">
+                    <p class="total-price">Rp.0</p>
+                    <button type="button" class="btn btn-dark btn-block" id="lanjutButton" disabled>Lanjut</button>
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <div>
-                    <p class="total-price">Rp.0</p>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary btn-block" id="lanjutButton">Lanjut</button>
-                </div>
             </div>
         </div>
     </div>
@@ -257,3 +255,5 @@
             </div>
         </div>
     </div>
+</div>
+
