@@ -150,7 +150,7 @@
                     <p class="total-price">Rp.0</p>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-outline-dark" id="lanjutButton">Lanjut</button>
+                    <button type="button" class="btn btn-primary btn-block" id="lanjutButton">Lanjut</button>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" id="selesaiButton">Selesai</button>
+                <button type="button" class="btn btn-primary btn-block" id="selesaiButton">Selesai</button>
             </div>
         </div>
     </div>
@@ -252,7 +252,7 @@
                 <p id="successReservationPrices">prices</p>
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" id="homeButton">Home</button>
+                    <button type="button" class="btn btn-primary btn-block" id="homeButton">Home</button>
                 </div>
             </div>
         </div>

@@ -186,6 +186,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Attach event listeners after the modals are loaded
             document.getElementById('selesaiButton').addEventListener('click', function () {
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let phone = document.getElementById('phone').value;
+                let noRekening = document.getElementById('no_rekening').value;
+
+                // Validation
+                if (!name || !email || !phone || !noRekening) {
+                    alert('Tolong isi semua kolom yang disediakan!');
+                    return; // Stop further execution if validation fails
+                }
+
                 // Close the second modal explicitly
                 const paymentModalElement = document.getElementById('paymentModal');
                 const paymentModal = bootstrap.Modal.getInstance(paymentModalElement);
@@ -204,11 +215,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     listItem.textContent = `${item.name} x ${item.quantity}`;
                     successOrderList.appendChild(listItem);
                 });
-
-                let name = document.getElementById('name').value;
-                let email = document.getElementById('email').value;
-                let phone = document.getElementById('phone').value;
-                let noRekening = document.getElementById('no_rekening').value;
 
                 document.getElementById('successName').textContent = name;
                 document.getElementById('successEmail').textContent = email;
@@ -275,14 +281,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     method: 'POST',
                     body: postHandlerData
                 })
-                .then(response => response.text()) // Adjust based on the PHP response type
-                .then(data => {
-                    alert('Reservation and order items inserted successfully!');
-                })
-                .catch(error => {
-                    console.error('Error:', error); // Handle error
-                    alert('An error occurred while submitting the reservation.');
-                });
+                    .then(response => response.text()) // Adjust based on the PHP response type
+                    .then(data => {
+                        alert('Reservation and order items inserted successfully!');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error); // Handle error
+                        alert('An error occurred while submitting the reservation.');
+                    });
 
                 successModal.show();
             });
