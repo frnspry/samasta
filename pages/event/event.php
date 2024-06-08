@@ -55,7 +55,6 @@
                         <a class="nav-link" href="../menu/menu_paket.php#menu-links">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reservasi</a>
                         <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#myModal">Reservasi</a>
                     </li>
                     <li class="nav-item">
