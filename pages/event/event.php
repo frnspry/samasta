@@ -75,7 +75,7 @@
                     <img src="../../resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     Samasta
                 </a>
-                <a class="btn btn-outline-light" href="#">Make Reservation</a>
+                <a class="btn btn-outline-light" href="#">Buat Reservasi</a>
             </div>
         </nav>
 
@@ -86,19 +86,19 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.php">Home</a>
+                        <a class="nav-link" href="../../index.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../menu/menu_paket.php#menu-links">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reservations</a>
+                        <a class="nav-link" href="#">Reservasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="event.php">Events</a>
+                        <a class="nav-link" href="event.php">Acara</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#wedding">Wedding</a>
+                        <a class="nav-link" href="#wedding">Pernikahan</a>
                     </li>
                 </ul>
             </div>
@@ -110,7 +110,7 @@
         <div class="container-fluid-6">
             <div class="left-side-5">
                 <div class="container-fluid-2-content">
-                    <h2>EVENTS</h2>
+                    <h2>ACARA</h2>
                     <p>Reservasi event-event menarik anda di Gazebo Samasta!</p>
                     <div class="read-more">
                         <a class="btn btn-outline-dark" href="#form-event">EVENT ENQUIRY</a>
@@ -127,7 +127,7 @@
             </div>
             <div class="right-side-6">
                 <div class="container-fluid-7-content">
-                    <h2>WEDDING</h2>
+                    <h2>PERNIKAHAN</h2>
                     <p>Reservasi acara pernikahanmu di Gazebo Samasta!</p>
                     <div class="read-more">
                         <a class="btn btn-outline-dark" href="#form-event">EVENT ENQUIRY</a>
@@ -140,7 +140,7 @@
         <div class="container mt-5" id="form-event">
             <div class="row justify-content-center">
                 <div class="col-md-8 form-container">
-                    <h1 class="form-title">FORMULIR EVENT</h1>
+                    <h1 class="form-title">FORMULIR ACARA</h1>
                     <form>
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Nama Lengkap</label>
@@ -195,26 +195,26 @@
         <div class="container-fluid-4">
             <div class="row">
                 <div class="col-md-6 left-side-3">
-                    <h2>KEEP UP TO DATE WITH GAZEBO SAMASTA</h2>
-                    <p>Stay informed with the latest news and updates from Gazebo Samasta.</p>
+                    <h2>TERUS PANTAU HAL TERBARU DI GAZEBO SAMASTA</h2>
+                    <p>Ikuti terus berita terkini dan update dari Gazebo Samasta.</p>
                 </div>
                 <div class="col-md-6 right-side-3">
                     <form action="blablabla.php" method="POST">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="First Name*" required>
+                                <input type="text" class="form-control" placeholder="Nama Depan*" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Last Name*" required>
+                                <input type="text" class="form-control" placeholder="Nama Belakang*" required>
                             </div>
                         </div>
                         <input type="email" class="form-control" placeholder="Email*" required>
                         <div class="form-group">
-                            <label for="birthday">Birthday*</label>
+                            <label for="birthday">Hari Ulang Tahun*</label>
                             <input type="date" id="birthday" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="anniversary">Anniversary Date</label>
+                            <label for="anniversary">Tanggal Anniversary</label>
                             <input type="date" id="anniversary" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-outline-dark">Sign Up</button>
@@ -227,20 +227,20 @@
         <div class="container-fluid-5">
             <div class="row">
                 <div class="col-md-4 left-side-4">
-                    <h2>SOCIAL</h2>
+                    <h2>MEDIA SOSIAL</h2>
                     <div class="social-icons">
                         <a href="#"><img src="../../resource/images/instagram.png" alt="Instagram"></a>
                         <a href="#"><img src="../../resource/images/twitter.png" alt="Twitter"></a>
                         <a href="#"><img src="../../resource/images/facebook.png" alt="Facebook"></a>
                     </div>
-                    <h2>LOCATION</h2>
+                    <h2>LOKASI</h2>
                     <p>JI. Perintis kemerdekaan Baru KM.09, Kota Makassar, Sulawesi Selatan.</p>
-                    <h2>OPENING HOURS</h2>
+                    <h2>JAM OPERASIONAL</h2>
                     <p>16:00 to 22:00 WITA</p>
                 </div>
                 <div class="col-md-4 middle-side-4">
-                    <h2>RESERVATIONS</h2>
-                    <a class="btn btn-outline-dark" href="#">Make Reservation</a>
+                    <h2>RESERVASI</h2>
+                    <a class="btn btn-outline-dark" href="#">Buat Reservasi</a>
                     <div class="phone-number">
                         <img src="../../resource/images/phone.png" alt="Phone" class="phone-icon"> 021 9291828
                     </div>
