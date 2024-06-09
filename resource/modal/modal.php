@@ -225,29 +225,44 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-                <h4 class="text-center fw-bold">Berhasil</h4>
-                <h5>Invoice</h5>
-                <p id="successInvoice">invoice</p>
-                <h5>Nama</h5>
-                <p id="successName">nama</p>
-                <h5>Email</h5>
-                <p id="successEmail">email</p>
-                <h5>Nomor HP</h5>
-                <p id="successPhone">nomor hp</p>
-                <h5>Nomor Rekening</h5>
-                <p id="successRekening">nomor rekening</p>
-                <h5>Tanggal</h5>
-                <p id="successReservationDate">date</p>
-                <h5>Waktu</h5>
-                <p id="successReservationTime">time</p>
-                <h5>Jumlah Tamu</h5>
-                <p id="successReservationGuests">guest</p>
-                <h5>Jenis Meja</h5>
-                <p id="successReservationTable">table</p>
-                <h5>Pesanan</h5>
-                <div id="successOrderList"></div>
-                <h5>Total Harga</h5>
-                <p id="successReservationPrices">prices</p>
+                <div class="text-center">
+                    <i class="fas fa-check-circle fa-5x text-success"></i>
+                    <h1 class="mt-3"> Pembayaran Berhasil </h1>
+                </div>
+                <div class="container-fluid">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Invoice</h5>
+                            <p id="successInvoice">invoice</p>
+                            <h5>Nama</h5>
+                            <p id="successName">nama</p>
+                            <h5>Email</h5>
+                            <p id="successEmail">email</p>
+                            <h5>Nomor HP</h5>
+                            <p id="successPhone">nomor hp</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="far fa-clock"></i> Tanggal</h5>
+                            <p id="successReservationDate">date</p>
+                            <h5><i class="far fa-clock"></i> Waktu</h5>
+                            <p id="successReservationTime">time</p>
+                            <h5><i class="fas fa-user"></i> Jumlah Tamu</h5>
+                            <p id="successReservationGuests">guest</p>
+                            <h5><i class="fas fa-chair"></i> Jenis Meja</h5>
+                            <p id="successReservationTable">table</p>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5><i class="fas fa-hamburger"></i> List Pesanan</h5>
+                            <div id="successOrderList"></div>
+                            <h5><i class="fas fa-money-bill"></i> Total Harga</h5>
+                            <p id="successReservationPrices">prices</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- hide no_rekening value -->
+                <p id="successRekening" style="display: none;"></p>
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-block" id="homeButton">Home</button>

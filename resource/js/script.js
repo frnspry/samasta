@@ -192,38 +192,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 let email = document.getElementById('email').value;
                 let phone = document.getElementById('phone').value;
                 let noRekening = document.getElementById('no_rekening').value;
-            
+
                 // Validation
                 if (!name || !email || !phone || !noRekening) {
                     alert('Tolong isi semua kolom yang disediakan!');
                     return; // Stop further execution if validation fails
                 }
-            
+
                 // Nama hanya boleh berisi huruf
                 const lettersOnly = name.replace(/[^a-zA-Z\s]/g, '');
                 if (name !== lettersOnly) {
                     alert('Nama hanya boleh berisi huruf!');
                     return; // Stop further execution if validation fails
                 }
-            
+
                 // Nomor HP hanya boleh berisi angka dan maksimal 13 digit
                 const numbersOnlyPhone = phone.replace(/[^0-9]/g, '');
                 if (phone !== numbersOnlyPhone) {
                     alert('Nomor HP hanya boleh berisi angka!');
                     return; // Stop further execution if validation fails
-                }
-                if (phone.length > 13) {
+                } else if (numbersOnlyPhone.length > 13) {
                     alert('Nomor HP maksimal 13 digit!');
                     return; // Stop further execution if validation fails
                 }
-            
+
                 // Nomor Rekening hanya boleh berisi angka dan maksimal 16 digit
                 const numbersOnlyRekening = noRekening.replace(/[^0-9]/g, '');
                 if (noRekening !== numbersOnlyRekening) {
                     alert('Nomor Rekening hanya boleh berisi angka!');
                     return; // Stop further execution if validation fails
-                }
-                if (noRekening.length > 16) {
+                } else if (numbersOnlyRekening.length > 16) {
                     alert('Nomor Rekening maksimal 16 digit!');
                     return; // Stop further execution if validation fails
                 }
@@ -251,7 +249,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('successEmail').textContent = email;
                 document.getElementById('successPhone').textContent = phone;
                 document.getElementById('successRekening').textContent = noRekening;
-
                 document.getElementById('successReservationDate').textContent = date;
                 document.getElementById('successReservationTime').textContent = time;
                 let datee = date;
@@ -328,20 +325,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = indexPage;
             });
         });
-        $(document).ready(function() {
-            // Memunculkan atau menyembunyikan tombol berdasarkan posisi scroll
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#btnTop').fadeIn();
-                } else {
-                    $('#btnTop').fadeOut();
-                }
-            });
-
-            // Menggulir kembali ke atas ketika tombol ditekan
-            $('#btnTop').click(function() {
-                $('html, body').scrollTop(0); // Menggulir langsung ke atas tanpa animasi
-                return false;
-            });
+    $(document).ready(function () {
+        // Memunculkan atau menyembunyikan tombol berdasarkan posisi scroll
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('#btnTop').fadeIn();
+            } else {
+                $('#btnTop').fadeOut();
+            }
         });
+
+        // Menggulir kembali ke atas ketika tombol ditekan
+        $('#btnTop').click(function () {
+            $('html, body').scrollTop(0); // Menggulir langsung ke atas tanpa animasi
+            return false;
+        });
+    });
 });
