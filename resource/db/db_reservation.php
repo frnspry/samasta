@@ -42,7 +42,6 @@ try {
     // Commit transaction
     $dbh->commit();
 
-    echo "Reservation and order items inserted successfully!";
 } catch (PDOException $e) {
     // Rollback transaction if something went wrong
     $dbh->rollBack();

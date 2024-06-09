@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 selesaiButton.disabled = !(name && email && phone && noRekening);
             }
-            
+
             document.getElementById('name').addEventListener('change', toggleSelesaiButton);
             document.getElementById('email').addEventListener('change', toggleSelesaiButton);
             document.getElementById('phone').addEventListener('change', toggleSelesaiButton);
@@ -269,6 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const successModalElement = document.getElementById('successModal');
                 const successModal = bootstrap.Modal.getOrCreateInstance(successModalElement);
                 const successOrderList = document.getElementById('successOrderList');
+                successModal.show();
 
                 orderList.forEach(item => {
                     const listItem = document.createElement('li');
@@ -342,41 +343,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                     .then(response => response.text()) // Adjust based on the PHP response type
                     .then(data => {
-                        alert('Reservation and order items inserted successfully!');
+                        autoDownloadReceipt();
                     })
                     .catch(error => {
                         console.error('Error:', error); // Handle error
                         alert('An error occurred while submitting the reservation.');
                     });
-
-                successModal.show();
             });
 
-            document.getElementById('downloadPDFButton').addEventListener('click', function () {
+            function autoDownloadReceipt() {
                 // Initialize jsPDF
-                const { jsPDF } = window.jspdf;
+                const jsPDF = window.jspdf.jsPDF;
                 const doc = new jsPDF('p', 'pt', 'a4'); // A4 size with portrait orientation
                 const scale = window.devicePixelRatio * 2; // Increase scale for higher resolution
-            
+
                 // Capture modal content as image using html2canvas with increased scale
                 html2canvas(document.querySelector('.modal-print'), { scale: scale }).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
-            
+
                     // Add image to PDF with increased quality
                     const pdfWidth = doc.internal.pageSize.getWidth();
                     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
                     doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, '', 'FAST');
-            
+
                     // Add text below the image
                     const text = "Silahkan tunjukkan receipt ini kepada kasir pada saat reservasi";
                     const textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
                     const textHeight = doc.internal.getLineHeight();
                     doc.text(text, (pdfWidth - textWidth) / 2, pdfHeight + textHeight + 10); // Adjust position as needed
-            
+
                     // Save PDF
                     doc.save('reservation_details.pdf');
                 });
-            });
+            };
 
             document.getElementById('homeButton').addEventListener('click', function () {
                 window.location.href = indexPage;

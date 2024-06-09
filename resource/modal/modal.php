@@ -276,7 +276,6 @@
                     </div>
                 </div>
                 <div class="d-grid">
-                    <button id="downloadPDFButton" type="button" class="btn btn-primary">Download as PDF</button>
                     <button type="button" class="btn btn-dark btn-block" id="homeButton">Home</button>
                 </div>
                 <!-- hide no_rekening value -->
