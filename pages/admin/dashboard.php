@@ -24,7 +24,7 @@ $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Query to fetch admins data
-$sql_admins = "SELECT username FROM admins";
+$sql_admins = "SELECT username, job FROM admins";
 $stmt_admins = $dbh->prepare($sql_admins);
 $stmt_admins->execute();
 $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
@@ -37,10 +37,7 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
     <title>Dashboard Admin - Gazebo Samasta</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Favicon -->
     <link rel="icon" href="../../resource/images/logoaja.png" type="image/x-icon">
@@ -225,6 +222,7 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                             <thead>
                                 <tr>
                                     <th>Username</th>
+                                    <th>Job</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -232,11 +230,16 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($admins_results as $admin) {
                                     echo "<tr>
                                             <td>" . $admin['username'] . "</td>
+                                            <td>" . $admin['job'] . "</td>
                                         </tr>";
                                 }
                                 ?>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button id="createAdminButton" class="btn btn-dark btn-block" disabled>Create Admin Account</button>
+                        <button id="deleteAdminButton" class="btn btn-dark btn-block" disabled>Delete Admin Account</button>
                     </div>
                 </div>
             </div>
@@ -267,10 +270,68 @@ $admins_results = $stmt_admins->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                             </div>
                             <div class="col-3">
-                                <button id="closeButton" type="button" class="btn btn-danger">Batal</button>
+                                <button id="closeButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                 <button id="saveButton" type="button" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Admin Modal -->
+    <div class="modal fade" id="createAdminModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createAdminModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="createAdminModalLabel">Create Admin</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="my-2">
+                            <div class="mb-2">
+                                <label for="username">Username</label>
+                            </div>
+                            <input class="form-control form-control-lg" type="text" name="username" id="username" placeholder="Masukkan Username" required>
+                        </div>
+                        <div class="mt-3">
+                            <div class="mb-2">
+                                <label for="password">Password</label>
+                            </div>
+                            <input class="form-control form-control-lg" type="password" name="password" id="password" placeholder="•••••••••••" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="">
+                        <button id="closeButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <button id="createButton" type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Admin Modal -->
+    <div class="modal fade" id="deleteAdminModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteAdminModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteAdminModalLabel">Delete Admin</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select id="adminUsernameSelect" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="">
+                        <button id="closeButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <button id="deleteButton" type="button" class="btn btn-primary">Hapus</button>
                     </div>
                 </div>
             </div>
