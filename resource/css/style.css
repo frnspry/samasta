@@ -512,6 +512,30 @@ body {
 }
 
 /* modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header .modal-title {
+    text-align: center;
+    flex: 1; /* Memiliki fleksibilitas 1 untuk menyesuaikan ukuran */
+    margin: 0; /* Hapus margin default */
+}
+
+.btn-back,
+.btn-close {
+    /* Atur margin atau padding sesuai kebutuhan */
+    margin: 0;
+    padding: 0;
+}
+
+.category {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
 .menu-item-container {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -553,6 +577,7 @@ body {
     margin: 0 10px;
     font-size: 16px;
 }
+
 
 /* CSS untuk tombol Search agar menjadi warna hitam dan panjang */
 .btn-search-black {

@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 selesaiButton.disabled = !(name && email && phone && noRekening);
             }
+            
             document.getElementById('name').addEventListener('change', toggleSelesaiButton);
             document.getElementById('email').addEventListener('change', toggleSelesaiButton);
             document.getElementById('phone').addEventListener('change', toggleSelesaiButton);
@@ -341,6 +342,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 successModal.show();
             });
+
+            document.getElementById('downloadPDFButton').addEventListener('click', function () {
+                // Initialize jsPDF
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+            
+                // Capture modal content as image using html2canvas
+                html2canvas(document.querySelector('.modal-print')).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+            
+                    // Add image to PDF
+                    const imgProps = doc.getImageProperties(imgData);
+                    const pdfWidth = doc.internal.pageSize.getWidth();
+                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            
+                    doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            
+                    // Save PDF
+                    doc.save('reservation_details.pdf');
+                });
+            });
+            
+            
+            
+            
+            
+            
 
             document.getElementById('homeButton').addEventListener('click', function () {
                 window.location.href = indexPage;
