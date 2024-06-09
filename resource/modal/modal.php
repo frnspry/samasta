@@ -80,7 +80,7 @@
                     // Define the images
                     $menuItems = [
                         "Nasi Ayam Goreng Rempah" => ["resource/images/nasi ayam goreng rempah.jpg", "../../resource/images/nasi ayam goreng rempah.jpg"],
-                        "Nasi Bebek Palekko" => ["resource/images/nasi_bebek_palekko.jpg", "../../resource/images/nasi_bebek_palekko.jpg"],
+                        "Nasi Bebek Palekko" => ["resource/images/Nasi_bebek_palekko.jpg", "../../resource/images/Nasi_bebek_palekko.jpg"],
                         "Nasi Bebek Sinjay Madura" => ["resource/images/Nasi bebek sinjay.jpg", "../../resource/images/Nasi bebek sinjay.jpg"],
                         "Nasi Putih" => ["resource/images/nasi putih.jpg", "../../resource/images/nasi putih.jpg"],
                         "Nasi Putih Satu Bakul" => ["resource/images/nasi putih satu bakul.jpg", "../../resource/images/nasi putih satu bakul.jpg"],
