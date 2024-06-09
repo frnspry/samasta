@@ -21,7 +21,6 @@
 
     <!-- JS file -->
     <script src="resource/js/script.js"></script>
-    <script src="resource/js/receipt_handler.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

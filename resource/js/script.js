@@ -349,6 +349,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.error('Error:', error); // Handle error
                         alert('An error occurred while submitting the reservation.');
                     });
+
+                    document.getElementById('downloadPDFButton').addEventListener('click', function () {
+                        autoDownloadReceipt();
+                    });
+
             });
 
             function autoDownloadReceipt() {
