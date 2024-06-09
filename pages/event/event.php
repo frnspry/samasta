@@ -36,7 +36,6 @@
                     <img src="../../resource/images/logoaja.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     Samasta
                 </a>
-                <a class="btn btn-outline-light" href="#">Buat Reservasi</a>
                 <a class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#myModal">Buat Reservasi</a>
             </div>
         </nav>
