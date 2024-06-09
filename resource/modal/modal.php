@@ -76,26 +76,26 @@
 
                     // Define the images
                     $menuItems = [
-                        "Nasi Ayam Goreng Rempah" => "resource/images/nasi ayam goreng rempah.jpg",
-                        "Nasi Bebek Palekko" => "resource/images/nasi_bebek_palekko.jpg",
-                        "Nasi Bebek Sinjay Madura" => "resource/images/Nasi bebek sinjay.jpg",
-                        "Nasi Putih" => "resource/images/nasi putih.jpg",
-                        "Nasi Putih Satu Bakul" => "resource/images/nasi putih satu bakul.jpg",
-                        "Nasi Goreng Kampung" => "resource/images/nasi goreng kampung.jpg",
-                        "Pasta Carbonara" => "resource/images/pasta carbonara.jpg",
-                        "Pasta Aglio e Olio" => "resource/images/Pasta oglioolio.jpg",
-                        "Pasta Mushroom Aglio e Olio" => "resource/images/Mushroom oglioolio pasta.jpg",
-                        "Grilled Chicken Skewer" => "resource/images/Grilled chicken skeweer.jpg",
-                        "Wagyu Saikoro Skewer" => "resource/images/Wagyo saikoro skeweer.jpg",
-                        "Pisang Goreng Keju" => "resource/images/Pisang goreng keju.jpg",
-                        "French Fries" => "resource/images/French fries.jpg",
-                        "Beef Burger" => "resource/images/Beef burger.jpg",
-                        "Chicken Burger" => "resource/images/Chicken burger.jpg",
-                        "Special Lychee" => "resource/images/Special Lechy.jpg",
-                        "Fantastic Mango" => "resource/images/Fantastic Mango.jpg",
-                        "Cappuccino Ice" => "resource/images/Ice Capuccino.jpg",
-                        "Thai Tea Ice" => "resource/images/Ice Thai tea.jpg",
-                        "Chocolate Ice" => "resource/images/Ice Chocolate.jpg"
+                        "Nasi Ayam Goreng Rempah" => ["resource/images/nasi ayam goreng rempah.jpg", "../../resource/images/nasi ayam goreng rempah.jpg"],
+                        "Nasi Bebek Palekko" => ["resource/images/nasi_bebek_palekko.jpg", "../../resource/images/nasi_bebek_palekko.jpg"],
+                        "Nasi Bebek Sinjay Madura" => ["resource/images/Nasi bebek sinjay.jpg", "../../resource/images/Nasi bebek sinjay.jpg"],
+                        "Nasi Putih" => ["resource/images/nasi putih.jpg", "../../resource/images/nasi putih.jpg"],
+                        "Nasi Putih Satu Bakul" => ["resource/images/nasi putih satu bakul.jpg", "../../resource/images/nasi putih satu bakul.jpg"],
+                        "Nasi Goreng Kampung" => ["resource/images/nasi goreng kampung.jpg", "../../resource/images/nasi goreng kampung.jpg"],
+                        "Pasta Carbonara" => ["resource/images/pasta carbonara.jpg", "../../resource/images/pasta carbonara.jpg"],
+                        "Pasta Aglio e Olio" => ["resource/images/Pasta oglioolio.jpg", "../../resource/images/Pasta oglioolio.jpg"],
+                        "Pasta Mushroom Aglio e Olio" => ["resource/images/Mushroom oglioolio pasta.jpg", "../../resource/images/Mushroom oglioolio pasta.jpg"],
+                        "Grilled Chicken Skewer" => ["resource/images/Grilled chicken skeweer.jpg", "../../resource/images/Grilled chicken skeweer.jpg"],
+                        "Wagyu Saikoro Skewer" => ["resource/images/Wagyo saikoro skeweer.jpg", "../../resource/images/Wagyo saikoro skeweer.jpg"],
+                        "Pisang Goreng Keju" => ["resource/images/Pisang goreng keju.jpg", "../../resource/images/Pisang goreng keju.jpg"],
+                        "French Fries" => ["resource/images/French fries.jpg", "../../resource/images/French fries.jpg"],
+                        "Beef Burger" => ["resource/images/Beef burger.jpg", "../../resource/images/Beef burger.jpg"],
+                        "Chicken Burger" => ["resource/images/Chicken burger.jpg", "../../resource/images/Chicken burger.jpg"],
+                        "Special Lychee" => ["resource/images/Special Lechy.jpg", "../../resource/images/Special Lechy.jpg"],
+                        "Fantastic Mango" => ["resource/images/Fantastic Mango.jpg", "../../resource/images/Fantastic Mango.jpg"],
+                        "Cappuccino Ice" => ["resource/images/Ice Capuccino.jpg", "../../resource/images/Ice Capuccino.jpg"],
+                        "Thai Tea Ice" => ["resource/images/Ice Thai tea.jpg", "../..//resource/images/Ice Thai tea.jpg"],
+                        "Chocolate Ice" => ["resource/images/Ice Chocolate.jpg", "../../resource/images/Ice Chocolate.jpg"]
                     ];
 
                     try {
@@ -109,12 +109,15 @@
                                 $fetchedItems[$row['name']] = $row;
                             }
 
+                            // Determine which image path to use based on whether the current page is index.php
+                            $imageIndex = ($_SERVER['PHP_SELF'] === '/index.php') ? 0 : 1;
+
                             // Loop through each category and display its items
                             foreach ($categories as $category => $items) {
                                 echo '<h5>' . $category . '</h5>';
                                 foreach ($items as $item) {
                                     if (isset($fetchedItems[$item])) {
-                                        $imagePath = isset($menuItems[$item]) ? $menuItems[$item] : 'default.jpg';
+                                        $imagePath = isset($menuItems[$item]) ? $menuItems[$item][$imageIndex] : 'default.jpg';
                                         echo '<div class="menu-item-container">';
                                         echo '<div class="row">';
                                         echo '<div class="col-md-2">';
