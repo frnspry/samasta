@@ -164,11 +164,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const tableSelect = document.getElementById('table');
                 tableSelect.innerHTML = '';
 
-                if (guests === '1-4') {
+                if (guests === '1-4 Orang') {
                     tableSelect.innerHTML += '<option value="A">A</option>';
-                } else if (guests === '5-8') {
+                } else if (guests === '5-8 Orang') {
                     tableSelect.innerHTML += '<option value="B">B</option>';
-                } else if (guests === '8+') {
+                } else if (guests === '8+ Orang') {
                     tableSelect.innerHTML += '<option value="C">C</option>';
                     tableSelect.innerHTML += '<option value="Gazebo">Gazebo</option>';
                 }
@@ -208,6 +208,15 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('email').addEventListener('change', toggleSelesaiButton);
             document.getElementById('phone').addEventListener('change', toggleSelesaiButton);
             document.getElementById('no_rekening').addEventListener('change', toggleSelesaiButton);
+
+            function toggleSelesaiButton() {
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let phone = document.getElementById('phone').value;
+                let noRekening = document.getElementById('no_rekening').value;
+
+                selesaiButton.disabled = !(name && email && phone && noRekening);
+            }
 
             document.getElementById('selesaiButton').addEventListener('click', function () {
                 let name = document.getElementById('name').value;
@@ -391,16 +400,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Event.php handler
-    document.getElementById('consent').addEventListener('change', function() {
-        document.getElementById('submitButton').disabled = !this.checked;
-    });
+    // document.getElementById('consent').addEventListener('change', function() {
+    //     document.getElementById('submitButton').disabled = !this.checked;
+    // });
 
-    document.getElementById('submitButton').addEventListener('click', function(){
-        // Validation
-        if (!document.getElementById('consent').checked) {
-            alert('Tolong Setujui untuk mengizinkan Samasta menyimpan dan memproses data pribadi anda!');
-            return; // Stop further execution if validation fails
-        }
-    });
+    // document.getElementById('submitButton').addEventListener('click', function(){
+    //     // Validation
+    //     if (!document.getElementById('consent').checked) {
+    //         alert('Tolong Setujui untuk mengizinkan Samasta menyimpan dan memproses data pribadi anda!');
+    //         return; // Stop further execution if validation fails
+    //     }
+    // });
 
 });

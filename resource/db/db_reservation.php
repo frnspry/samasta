@@ -6,6 +6,7 @@ try {
     // Begin transaction
     $dbh->beginTransaction();
 
+    // Insert customer
     $stmt = $dbh->prepare("INSERT INTO customers (name, email, phone, no_rekening) VALUES (:name, :email, :phone, :no_rekening)");
     $stmt->execute([
         ':name' => $_POST['name'],
@@ -14,7 +15,6 @@ try {
         ':no_rekening' => $_POST['no_rekening']
     ]);
     $customer_id = $dbh->lastInsertId();
-
 
     // Insert reservation
     $stmt = $dbh->prepare("INSERT INTO reservations (customer_id, reservation_date, reservation_time, prices, invoice, peoples, table_type) VALUES (:customer_id, :reservation_date, :reservation_time, :prices, :invoice, :peoples, :table_type)");
@@ -47,4 +47,7 @@ try {
     // Rollback transaction if something went wrong
     $dbh->rollBack();
     echo "Error: " . $e->getMessage();
+    // Log the error for debugging purposes
+    error_log("Error in reservation process: " . $e->getMessage());
 }
+?>

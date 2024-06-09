@@ -20,9 +20,9 @@
                     <div class="form-group">
                         <label for="guests">Jumlah Tamu</label>
                         <select class="form-control" id="guests">
-                            <option value="1-4">1-4 Orang</option>
-                            <option value="5-8">5-8 Orang</option>
-                            <option value="8+">8+ Orang</option>
+                            <option value="1-4 Orang">1-4 Orang</option>
+                            <option value="5-8 Orang">5-8 Orang</option>
+                            <option value="8+ Orang">8+ Orang</option>
                         </select>
                     </div>
                     <div class="form-group" id="tableType">
