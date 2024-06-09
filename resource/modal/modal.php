@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="logo text-center" style="width: 100%;">
-                    <img src="../../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
+                    <img src="../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
                 </div>
                 <form class="bookingForm" id="bookingForm">
                     <div class="form-group">
@@ -79,13 +79,13 @@
 
                     // Define the images
                     $menuItems = [
-                        "Nasi Ayam Goreng Rempah" => ["resource/images/nasi ayam goreng rempah.jpg", "../../resource/images/nasi ayam goreng rempah.jpg"],
-                        "Nasi Bebek Palekko" => ["resource/images/nasi_bebek_palekko.jpg", "../../resource/images/nasi_bebek_palekko.jpg"],
+                        "Nasi Ayam Goreng Rempah" => ["resource/images/Nasi ayam goreng rempah.jpg", "../../resource/images/Nasi ayam goreng rempah.jpg"],
+                        "Nasi Bebek Palekko" => ["resource/images/Nasi_bebek_palekko.jpg", "../../resource/images/Nasi_bebek_palekko.jpg"],
                         "Nasi Bebek Sinjay Madura" => ["resource/images/Nasi bebek sinjay.jpg", "../../resource/images/Nasi bebek sinjay.jpg"],
-                        "Nasi Putih" => ["resource/images/nasi putih.jpg", "../../resource/images/nasi putih.jpg"],
-                        "Nasi Putih Satu Bakul" => ["resource/images/nasi putih satu bakul.jpg", "../../resource/images/nasi putih satu bakul.jpg"],
-                        "Nasi Goreng Kampung" => ["resource/images/nasi goreng kampung.jpg", "../../resource/images/nasi goreng kampung.jpg"],
-                        "Pasta Carbonara" => ["resource/images/pasta carbonara.jpg", "../../resource/images/pasta carbonara.jpg"],
+                        "Nasi Putih" => ["resource/images/Nasi putih.jpg", "../../resource/images/Nasi putih.jpg"],
+                        "Nasi Putih Satu Bakul" => ["resource/images/Nasi putih satu bakul.jpg", "../../resource/images/Nasi putih satu bakul.jpg"],
+                        "Nasi Goreng Kampung" => ["resource/images/Nasi goreng kampung.jpg", "../../resource/images/Nasi goreng kampung.jpg"],
+                        "Pasta Carbonara" => ["resource/images/Nasta carbonara.jpg", "../../resource/images/Pasta carbonara.jpg"],
                         "Pasta Aglio e Olio" => ["resource/images/Pasta oglioolio.jpg", "../../resource/images/Pasta oglioolio.jpg"],
                         "Pasta Mushroom Aglio e Olio" => ["resource/images/Mushroom oglioolio pasta.jpg", "../../resource/images/Mushroom oglioolio pasta.jpg"],
                         "Grilled Chicken Skewer" => ["resource/images/Grilled chicken skeweer.jpg", "../../resource/images/Grilled chicken skeweer.jpg"],
