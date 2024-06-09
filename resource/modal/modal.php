@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="logo text-center" style="width: 100%;">
-                        <img src="../../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
+                    <img src="../../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
                 </div>
                 <form class="bookingForm" id="bookingForm">
                     <div class="form-group">
@@ -36,8 +36,10 @@
                         <label for="time">Time</label>
                         <input type="time" class="form-control" id="time" min="16:00" max="20:00">
                     </div>
-                    <button type="button" class="btn btn-search-black btn-block" id="searchButton">Search</button>
                 </form>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-dark btn-block" id="searchButton" disabled>Search</button>
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -46,9 +48,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <!-- The Second Modal -->
 <?php include '../db/db_connect.php'; ?>
@@ -150,6 +149,7 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
+                <p class="text-muted small">Powered by SEAL</p>
             </div>
         </div>
     </div>
@@ -206,10 +206,13 @@
                 <div id="reservationOrders" class="order-list"></div>
                 <h5>Total Harga</h5>
                 <p id="reservationPrices">prices</p>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-dark btn-block" id="selesaiButton" disabled>Selesai</button>
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-block" id="selesaiButton">Selesai</button>
+                <p class="text-muted small">Powered by SEAL</p>
             </div>
         </div>
     </div>
@@ -261,14 +264,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-dark btn-block" id="homeButton">Home</button>
+                </div>
                 <!-- hide no_rekening value -->
                 <p id="successRekening" style="display: none;"></p>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-block" id="homeButton">Home</button>
-                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <p class="text-muted small">Powered by SEAL</p>
             </div>
         </div>
     </div>
 </div>
-

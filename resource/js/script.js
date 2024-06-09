@@ -29,10 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const minDate = tomorrow.toISOString().split('T')[0];
             dateInput.min = minDate;
 
-            // Disable search button by default
-            const searchButton = document.getElementById('searchButton');
-            searchButton.disabled = true;
-
             // Attach event listeners after the modals are loaded
             document.getElementById('searchButton').addEventListener('click', function () {
                 time = document.getElementById('time').value;
@@ -44,6 +40,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (selectedTime < startTime || selectedTime > endTime) {
                     alert('Please select a time between 16:00 and 20:00.');
                     return;
+                }
+
+                // Validation
+                if (!date || !guests || !table || !time) {
+                    alert('Tolong isi tanggal dan waktu reservasi!');
+                    return; // Stop further execution if validation fails
                 }
 
                 // Close the first modal explicitly
@@ -174,6 +176,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Attach event listeners after the modals are loaded
             document.getElementById('lanjutButton').addEventListener('click', function () {
+                // Validation
+                if (orderList.length === 0) {
+                    alert('Tolong isi pesanan anda!');
+                    return; // Stop further execution if validation fails
+                }
+
                 // Close the second modal explicitly
                 const menuModalElement = document.getElementById('menuModal');
                 const menuModal = bootstrap.Modal.getInstance(menuModalElement);
@@ -186,6 +194,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 const paymentModal = bootstrap.Modal.getOrCreateInstance(paymentModalElement);
                 paymentModal.show();
             });
+
+            function toggleSelesaiButton() {
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let phone = document.getElementById('phone').value;
+                let noRekening = document.getElementById('no_rekening').value;
+
+                selesaiButton.disabled = !(name && email && phone && noRekening);
+            }
+            document.getElementById('name').addEventListener('change', toggleSelesaiButton);
+            document.getElementById('email').addEventListener('change', toggleSelesaiButton);
+            document.getElementById('phone').addEventListener('change', toggleSelesaiButton);
+            document.getElementById('no_rekening').addEventListener('change', toggleSelesaiButton);
 
             document.getElementById('selesaiButton').addEventListener('click', function () {
                 let name = document.getElementById('name').value;

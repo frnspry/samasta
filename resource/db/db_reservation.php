@@ -6,27 +6,15 @@ try {
     // Begin transaction
     $dbh->beginTransaction();
 
-    // Insert customer
-    $stmt = $dbh->prepare("SELECT customer_id FROM customers WHERE email = :email");
+    $stmt = $dbh->prepare("INSERT INTO customers (name, email, phone, no_rekening) VALUES (:name, :email, :phone, :no_rekening)");
     $stmt->execute([
-        ':email' => $_POST['email']
+        ':name' => $_POST['name'],
+        ':email' => $_POST['email'],
+        ':phone' => $_POST['phone'],
+        ':no_rekening' => $_POST['no_rekening']
     ]);
-    $existing_customer = $stmt->fetch(PDO::FETCH_ASSOC);
+    $customer_id = $dbh->lastInsertId();
 
-    if ($existing_customer) {
-        // If the customer already exists, retrieve their ID
-        $customer_id = $existing_customer['customer_id'];
-    } else {
-        // If the customer doesn't exist, insert a new customer
-        $stmt = $dbh->prepare("INSERT INTO customers (name, email, phone, no_rekening) VALUES (:name, :email, :phone, :no_rekening)");
-        $stmt->execute([
-            ':name' => $_POST['name'],
-            ':email' => $_POST['email'],
-            ':phone' => $_POST['phone'],
-            ':no_rekening' => $_POST['no_rekening']
-        ]);
-        $customer_id = $dbh->lastInsertId();
-    }
 
     // Insert reservation
     $stmt = $dbh->prepare("INSERT INTO reservations (customer_id, reservation_date, reservation_time, prices, invoice, peoples, table_type) VALUES (:customer_id, :reservation_date, :reservation_time, :prices, :invoice, :peoples, :table_type)");
@@ -60,4 +48,3 @@ try {
     $dbh->rollBack();
     echo "Error: " . $e->getMessage();
 }
-?>
