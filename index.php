@@ -163,7 +163,7 @@ echo "<script>var namaFilePHP = '{$nama_file_php}';</script>";
                 </div>
                 <div class="col-md-4 middle-side-4">
                     <h2>RESERVASI</h2>
-                    <a class="btn btn-outline-dark" href="#">Buat Reservasi</a>
+                    <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#myModal">Buat Reservasi</a>
                     <div class="phone-number">
                         <img src="resource/images/phone.png" alt="Phone" class="phone-icon"> 021 9291828
                     </div>

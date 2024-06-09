@@ -1,4 +1,5 @@
 var modalurl, fetchmenu, fetchreservation;
+let imgquay;
 
 // Checking in index or no
 const modalurl_1 = 'resource/modal/modal.php';

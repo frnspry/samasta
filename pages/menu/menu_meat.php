@@ -16,7 +16,7 @@ echo "<script>var namaFilePHP = '{$nama_file_php}';</script>";
     <link rel="icon" href="../../resource/images/logoaja.png" type="image/x-icon">
 
     <!-- Font Awesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -164,7 +164,7 @@ echo "<script>var namaFilePHP = '{$nama_file_php}';</script>";
             </div>
             <div class="col-md-4 middle-side-4">
                 <h2>RESERVASI</h2>
-                <a class="btn btn-outline-dark" href="#">Buat Reservasi</a>
+                <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#myModal">Buat Reservasi</a>
                 <div class="phone-number">
                     <img src="../../resource/images/phone.png" alt="Phone" class="phone-icon"> 021 9291828
                 </div>

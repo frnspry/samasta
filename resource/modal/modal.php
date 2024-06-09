@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="logo text-center" style="width: 100%;">
-                    <img src="../../resource/images/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
+                    <img id="logoOnIndex" src="https://i.ibb.co.com/Q9L6N7P/logonobgblack.png" alt="Quay Logo" class="mb-4" style="max-width: 100%; height: auto;">
                 </div>
                 <form class="bookingForm" id="bookingForm">
                     <div class="form-group">
@@ -113,7 +113,7 @@
                             }
 
                             // Determine which image path to use based on whether the current page is index.php
-                            $imageIndex = ($_SERVER['PHP_SELF'] === '/index.php') ? 0 : 1;
+                            $imageIndex = basename($_SERVER['PHP_SELF']) === 'index.php' ? 0 : 1;
 
                             // Loop through each category and display its items
                             foreach ($categories as $category => $items) {
