@@ -85,7 +85,7 @@
                         "Nasi Putih" => ["resource/images/Nasi putih.jpg", "../../resource/images/Nasi putih.jpg"],
                         "Nasi Putih Satu Bakul" => ["resource/images/Nasi putih satu bakul.jpg", "../../resource/images/Nasi putih satu bakul.jpg"],
                         "Nasi Goreng Kampung" => ["resource/images/Nasi goreng kampung.jpg", "../../resource/images/Nasi goreng kampung.jpg"],
-                        "Pasta Carbonara" => ["resource/images/Nasta carbonara.jpg", "../../resource/images/Pasta carbonara.jpg"],
+                        "Pasta Carbonara" => ["resource/images/Pasta carbonara.jpg", "../../resource/images/Pasta carbonara.jpg"],
                         "Pasta Aglio e Olio" => ["resource/images/Pasta oglioolio.jpg", "../../resource/images/Pasta oglioolio.jpg"],
                         "Pasta Mushroom Aglio e Olio" => ["resource/images/Mushroom oglioolio pasta.jpg", "../../resource/images/Mushroom oglioolio pasta.jpg"],
                         "Grilled Chicken Skewer" => ["resource/images/Grilled chicken skeweer.jpg", "../../resource/images/Grilled chicken skeweer.jpg"],
@@ -113,7 +113,9 @@
                             }
 
                             // Determine which image path to use based on whether the current page is index.php
-                            $imageIndex = basename($_SERVER['PHP_SELF']) === 'index.php' ? 0 : 1;
+                            $input = json_decode(file_get_contents('php://input'), true);
+                            $currentPHPFile = $input['namaFilePHP'];
+                            $imageIndex = $currentPHPFile === 'index.php' ? 0 : 1;
 
                             // Loop through each category and display its items
                             foreach ($categories as $category => $items) {
