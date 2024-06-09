@@ -1,3 +1,8 @@
+<?php
+$nama_file_php = basename($_SERVER['PHP_SELF']);
+echo "<script>var namaFilePHP = '{$nama_file_php}';</script>";
+?>
+
 <!doctype html>
 <html lang="en">
 

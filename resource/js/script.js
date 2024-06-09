@@ -1,7 +1,22 @@
-const fetchmenu = '../../resource/db/fetch_menu.php';
-const modalurl = '../../resource/modal/modal.php';
-const fetchreservation = '../../resource/db/db_reservation.php';
-const indexPage = 'index.php';
+var modalurl, fetchmenu, fetchreservation;
+
+// Checking in index or no
+const modalurl_1 = 'resource/modal/modal.php';
+const modalurl_2 = '../../resource/modal/modal.php';
+const fetchmenu_1 = 'resource/db/fetch_menu.php';
+const fetchmenu_2 = '../../resource/db/fetch_menu.php';
+const fetchreservation_1 = 'resource/db/db_reservation.php';
+const fetchreservation_2 = '../../resource/db/db_reservation.php';
+// if in index
+if (namaFilePHP === 'index.php'){
+    modalurl = modalurl_1;
+    fetchmenu = fetchmenu_1;
+    fetchreservation = fetchreservation_1;
+} else {
+    modalurl = modalurl_2;
+    fetchmenu = fetchmenu_2;
+    fetchreservation = fetchreservation_2;
+};
 
 let orderList = [];
 let totalPrice = 0;
@@ -383,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             document.getElementById('homeButton').addEventListener('click', function () {
-                window.location.href = indexPage;
+                window.location.reload();
             });
         });
     $(document).ready(function () {

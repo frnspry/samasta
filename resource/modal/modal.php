@@ -50,7 +50,12 @@
 </div>
 
 <!-- The Second Modal -->
-<?php include '../db/db_connect.php'; ?>
+<?php 
+if ($nama_file_php === 'index.php') {
+    include 'resource/db/db_connect.php';
+} else {
+    include '../../resource/db/db_connect.php';
+} ?>
 <div class="modal fade" id="menuModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
