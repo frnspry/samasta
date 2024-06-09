@@ -346,27 +346,28 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('downloadPDFButton').addEventListener('click', function () {
                 // Initialize jsPDF
                 const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
+                const doc = new jsPDF('p', 'pt', 'a4'); // A4 size with portrait orientation
+                const scale = window.devicePixelRatio * 2; // Increase scale for higher resolution
             
-                // Capture modal content as image using html2canvas
-                html2canvas(document.querySelector('.modal-print')).then(canvas => {
+                // Capture modal content as image using html2canvas with increased scale
+                html2canvas(document.querySelector('.modal-print'), { scale: scale }).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
             
-                    // Add image to PDF
-                    const imgProps = doc.getImageProperties(imgData);
+                    // Add image to PDF with increased quality
                     const pdfWidth = doc.internal.pageSize.getWidth();
-                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+                    doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, '', 'FAST');
             
-                    doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    // Add text below the image
+                    const text = "Silahkan tunjukkan receipt ini kepada kasir pada saat reservasi";
+                    const textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+                    const textHeight = doc.internal.getLineHeight();
+                    doc.text(text, (pdfWidth - textWidth) / 2, pdfHeight + textHeight + 10); // Adjust position as needed
             
                     // Save PDF
                     doc.save('reservation_details.pdf');
                 });
             });
-            
-            
-            
-            
             
             
 
