@@ -18,7 +18,7 @@
                         <input type="date" class="form-control" id="date" min="<?php echo date('Y-m-d'); ?>">
                     </div>
                     <div class="form-group">
-                        <label for="guests">Jumlah Tamu</label>
+                        <label for="guests">Jumlah Tamu Reservasi</label>
                         <select class="form-control" id="guests">
                             <option value="1-4 Orang">1-4 Orang</option>
                             <option value="5-8 Orang">5-8 Orang</option>
