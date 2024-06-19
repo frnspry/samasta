@@ -63,12 +63,6 @@ echo "<script>var namaFilePHP = '{$nama_file_php}';</script>";
                     <li class="nav-item">
                         <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#myModal">Reservasi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/event/event.php">Acara</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/event/event.php#wedding">Pernikahan</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -96,21 +90,6 @@ echo "<script>var namaFilePHP = '{$nama_file_php}';</script>";
                 </div>
             </div>
             <div class="right-side-1">
-            </div>
-        </div>
-
-        <!--container-fluid-3-->
-        <div class="container-fluid-3">
-            <div class="left-side-2">
-            </div>
-            <div class="right-side-2">
-                <div class="container-fluid-3-content">
-                    <h2>ACARA</h2>
-                    <p>Reservasi event-event menarik anda di Gazebo Samasta!</p>
-                    <div class="read-more">
-                        <a class="btn btn-outline-dark" href="pages/event/event.php">Lihat Acara</a>
-                    </div>
-                </div>
             </div>
         </div>
 
